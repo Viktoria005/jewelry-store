@@ -8,7 +8,7 @@ const Footer = () => {
                     <div class="footer-logo">
                     <div class="footer-links">
                         <ul>
-                            <li><a href="#"></a></li>
+                            <li><a href="#">Home</a></li>
                             <li><a href="#">Shop</a></li>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Contact</a></li>
@@ -20,9 +20,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.facebook.com/Restaurant.Silhouette/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#https://www.tiktok.com/@vickyyyy.kk" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/vickyyy.kk/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/Restaurant.Silhouette/" target="_blank"><i class="fab facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@vickyyyy.kk" target="_blank"><i class="fab tiktok"></i></a>
+                    <a href="https://www.instagram.com/vickyyy.kk/" target="_blank"><i class="fab instagram"></i></a>
                 </div>
             </footer>
     );

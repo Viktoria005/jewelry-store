@@ -45,6 +45,6 @@ footer {
 }
 
 /* Font Awesome icons */
-.fa-facebook-f::before { content: "\f39e"; }
-.fa-tiktok::before { content: "\f099"; }
-.fa-instagram::before { content: "\f16d"; }
+.facebook-f::before { content: "\f39e"; }
+.tiktok::before { content: "\f099"; }
+.instagram::before { content: "\f16d"; }
