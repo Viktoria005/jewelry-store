@@ -1,13 +1,9 @@
-import './App.css';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 
-function App() {
+export function App() {
   return (
-    <>
-    <Header />
-    <Footer /></>
-  );
+    <></>, <Header />, <Footer />); >
+    ;
+  ;
 }
-
-export default App;
