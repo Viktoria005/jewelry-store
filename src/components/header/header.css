@@ -73,6 +73,7 @@
 
 body {
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .signup-button {
@@ -89,6 +90,7 @@ body {
 .signup-button,
 .login-button {
   border: none;
+  width: 200px;
   padding: 15px 30px; /* Increased padding for bigger buttons */
   cursor: pointer;
   border-radius: 10px;
