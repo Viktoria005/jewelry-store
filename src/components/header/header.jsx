@@ -29,13 +29,13 @@ const Header = () => {
           <li>
             <a href="#">Shopping cart</a>
           </li>
-          <li>
-            Account
-            <ul>
-              <li>Log in</li>
-              <li>Sign up</li>
-            </ul>
-          </li>
+          <li className="account">
+    Account
+    <ul className="sub-menu">
+      <li><a href="#">Log in</a></li>
+      <li><a href="#">Sign up</a></li>
+    </ul>
+    </li>
         </ul>
       </div>
     </header>
