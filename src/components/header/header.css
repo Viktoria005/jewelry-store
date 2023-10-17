@@ -15,7 +15,7 @@
 
 #sparkly-logo {
   height: 100px;
-  margin-left: 150%;
+  margin-left: 100%;
 }
 
 #sparkly-logo-btn {
@@ -30,7 +30,7 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 20px;
   justify-content: space-around;
   align-items: center;
 }
@@ -43,40 +43,47 @@
   color: #ffffff;
 }
 
-/* Define basic styles for the menu */
-.nav-menu {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .nav-menu li {
-    display: inline-block;
-    margin-right: 10px;
-    position: relative;
-  }
-  
-  /* Style for sub-menu items */
-  .sub-menu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .sub-menu li {
-    display: block;
-    min-width: 100px;
-  }
-  
-  .sub-menu a {
-    padding: 10px;
-  }
-  
-  /* Show sub-menu on hover */
-  .nav-menu li:hover .sub-menu {
-    display: block;
-  }
-  
+/* .nav-menu {
+  list-style-type: none;
+  padding: 0;
+} */
 
+/* .nav-menu li {
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+} */
 
+.sub-menu {
+    width: auto;
+    height: auto;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-left: -40px;
+}
+
+.sub-menu li {
+    color: black;
+  margin-left: -40px;
+  display: block;
+  min-width: 100px;
+}
+
+.sub-menu a {
+    color: black;
+  padding: 10px;
+}
+
+/* Show sub-menu on hover */
+.nav-menu li:hover .sub-menu {
+  display: block;
+}
+
+body {
+    overflow-y: scroll;
+  }
+  
+  

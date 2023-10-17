@@ -15,27 +15,42 @@ const Header = () => {
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Shop</a>
+            <a href="#">About us</a>
           </li>
-          <li>
-            <a href="#">About Us</a>
-          </li>
-          <li>
-            <a href="#">Menu</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
+          <li className="Products" style={{ color: "white" }}>
+            Products
+            <ul className="sub-menu">
+              <li>
+                <a href="#">Rings</a>
+              </li>
+              <li>
+                <a href="#">Earrings</a>
+              </li>
+              <li>
+                <a href="#">Engagement rings</a>
+              </li>
+              <li>
+                <a href="#">Bracelet</a>
+              </li>
+              <li>
+                <a href="#">Necklace</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="#">Shopping cart</a>
           </li>
-          <li className="account">
-    Account
-    <ul className="sub-menu">
-      <li><a href="#">Log in</a></li>
-      <li><a href="#">Sign up</a></li>
-    </ul>
-    </li>
+          <li className="account" style={{ color: "white" }}>
+            Account
+            <ul className="sub-menu">
+              <li>
+                <a href="#">Log in</a>
+              </li>
+              <li>
+                <a href="#">Sign up</a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </header>
