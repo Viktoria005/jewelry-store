@@ -43,20 +43,9 @@
   color: #ffffff;
 }
 
-/* .nav-menu {
-  list-style-type: none;
-  padding: 0;
-} */
-
-/* .nav-menu li {
-  display: inline-block;
-  margin-right: 10px;
-  position: relative;
-} */
-
 .sub-menu {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
   display: none;
   position: absolute;
   background-color: #fff;
@@ -66,14 +55,14 @@
 }
 
 .sub-menu li {
-    color: black;
+  color: black;
   margin-left: -40px;
   display: block;
   min-width: 100px;
 }
 
 .sub-menu a {
-    color: black;
+  color: black;
   padding: 10px;
 }
 
@@ -83,7 +72,28 @@
 }
 
 body {
-    overflow-y: scroll;
-  }
-  
-  
+  overflow-y: scroll;
+}
+
+.signup-button {
+  background-color: rgb(75, 21, 78);
+  color: white;
+  border-radius: 10px;
+}
+.login-button {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+}
+
+.signup-button,
+.login-button {
+  border: none;
+  padding: 15px 30px; /* Increased padding for bigger buttons */
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+  display: block; /* Ensure buttons take full width of their container */
+  margin: 10px auto; /* Center the buttons horizontally */
+  text-align: center; /* Center the text within the button */
+}
