@@ -45,6 +45,14 @@ footer {
 }
 
 /* Font Awesome icons */
-.facebook-f::before { content: "\f39e"; }
-.tiktok::before { content: "\f099"; }
-.instagram::before { content: "\f16d"; }
+.facebook-f{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhqhCE1ZItBk2eXdpda7hUVibZjDbg_iVhUzQ1_xvmjQ&s");
+}
+
+.tiktok::before {
+    content: "\f099";
+}
+
+.instagram::before {
+    content: "\f16d";
+}
