@@ -44,14 +44,14 @@ const Header = () => {
             Account
             <ul className="sub-menu">
               <li>
-                <button className="login-button" type="button">
+                <a href="/login" className="login-button">
                   Log in
-                </button>
+                </a>
               </li>
               <li>
-                <button className="signup-button" type="button">
-                  Sign up
-                </button>
+                <a href="/singup" className="singup-button">
+                  Sing up
+                </a>
               </li>
             </ul>
           </li>

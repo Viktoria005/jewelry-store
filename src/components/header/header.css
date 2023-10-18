@@ -1,3 +1,12 @@
+body,html {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+}
+
+
+
 #sparkly-header {
   display: flex;
   align-items: center;
@@ -91,11 +100,11 @@ body {
 .login-button {
   border: none;
   width: 200px;
-  padding: 15px 30px; /* Increased padding for bigger buttons */
+  padding: 15px 30px;
   cursor: pointer;
   border-radius: 10px;
   outline: none;
-  display: block; /* Ensure buttons take full width of their container */
-  margin: 10px auto; /* Center the buttons horizontally */
-  text-align: center; /* Center the text within the button */
+  display: block; 
+  margin: 10px auto; 
+  text-align: center; 
 }
