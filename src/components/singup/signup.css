@@ -11,7 +11,7 @@ body {
     gap: 30px;
     padding: 45px;
     border: 1px solid #ccc;
-    border-radius: 12px;
+    border-radius: 25px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -107,7 +107,7 @@ body {
     padding: 12px;
     margin: 35px 0 12px 0;
     font-size: 28px;
-    background-color: #ffff00;
+    background-color:  rgb(75, 21, 78);
     border: none;
     border-radius: 30px;
     cursor: pointer;
@@ -115,7 +115,7 @@ body {
   }
   
   button:hover {
-    background-color: #f6f50f;
+    background-color:  rgb(75, 21, 78);
   }
   
   .log-in-link {

@@ -1,11 +1,10 @@
-body,html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: auto;
   height: auto;
 }
-
-
 
 #sparkly-header {
   display: flex;
@@ -86,9 +85,9 @@ body {
 }
 
 .signup-button {
-  background-color: rgb(75, 21, 78);
+ background-color: rgb(75, 21, 78);
   color: white;
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 .login-button {
   background-color: white;
@@ -104,7 +103,7 @@ body {
   cursor: pointer;
   border-radius: 10px;
   outline: none;
-  display: block; 
-  margin: 10px auto; 
-  text-align: center; 
+  display: block;
+  margin: 10px auto;
+  text-align: center;
 }

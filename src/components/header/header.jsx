@@ -49,7 +49,7 @@ const Header = () => {
                 </a>
               </li>
               <li>
-                <a href="/singup" className="singup-button">
+                <a href="/signup" className="signup-button">
                   Sing up
                 </a>
               </li>

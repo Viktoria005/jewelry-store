@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
-import Singup from "./components/singup/singup";
+import Signup from "./components/singup/signup"
 
 import {
   BrowserRouter as Router,
@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/singup" element={<Singup />} />
+          <Route path="/signup" element={<Signup />} />
           <Route index element={<Navigate replace to="/" />} />
         </Routes>
       </Router>
