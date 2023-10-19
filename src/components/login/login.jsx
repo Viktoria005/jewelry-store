@@ -23,8 +23,7 @@ const LoginForm = () => {
         <div className='password-group'>
           <input type={showPassword ? "text" : "password"} id="password" required />
           <i className={`password-toggle ${showPassword ? 'visible' : 'hidden'}`} onClick={togglePasswordVisibility}>
-            <img src={showPassword ? showPasswordIcon : hidePasswordIcon} alt="Toggle Password" />
-            {/* snimkata s okoto dali pri nego bachka */}
+            <img src={showPassword ? hidePasswordIcon :  showPasswordIcon} alt="Toggle Password" />
           </i>
         </div>
       </div>

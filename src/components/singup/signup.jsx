@@ -116,7 +116,7 @@ const Signup = () => {
               <div className='password-group'>
                 <input type={showPassword1 ? "text" : "password"} name='password' value={formData.password} onChange={handleChange} className="password-field" required />
                 <i className={`password-toggle ${showPassword1 ? 'visible' : 'hidden'}`} onClick={() => togglePasswordVisibility(1)}>
-                  <img src={showPassword1 ? showPasswordIcon : hidePasswordIcon} alt="Toggle Password" />
+                  <img src={showPassword1 ? hidePasswordIcon : showPasswordIcon} alt="Toggle Password" />
                 </i>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Signup = () => {
               <div className='password-group'>
                 <input type={showPassword2 ? "text" : "password"} name='confirmPassword' value={formData.confirmPassword} onChange={handleChange} className="password-field" required />
                 <i className={`password-toggle ${showPassword2 ? 'visible' : 'hidden'}`} onClick={() => togglePasswordVisibility(2)}>
-                  <img src={showPassword2 ? showPasswordIcon : hidePasswordIcon } alt="Toggle Password" />
+                  <img src={showPassword2 ? hidePasswordIcon : showPasswordIcon } alt="Toggle Password" />
                 </i>
               </div>
             </div>

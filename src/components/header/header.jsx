@@ -14,12 +14,9 @@ const Header = () => {
           <li>
             <a href="#">Home</a>
           </li>
-          <li>
-            <a href="#">About Us</a>
-          </li>
           <li className="Products" style={{ color: "white" }}>
             Products
-            <ul className="sub-menu">
+            <ul className="sub-menu-products">
               <li>
                 <a href="#">Rings</a>
               </li>
@@ -40,18 +37,22 @@ const Header = () => {
           <li>
             <a href="#">Shopping Cart</a>
           </li>
-          <li className="account" style={{ color: "white" }}>
-            Account
-            <ul className="sub-menu">
-              <li>
-                <a href="/login" className="login-button">
-                  Log in
-                </a>
-              </li>
-              <li>
-                <a href="/signup" className="signup-button">
-                  Sing up
-                </a>
+          <li>
+            <ul className="account-menu">
+              <li className="account" style={{ color: "white" }}>
+                Account
+                <ul className="sub-menu-account">
+                  <li>
+                    <a href="/login" className="login-button">
+                      Log in
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/signup" className="signup-button">
+                      Sing up
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
