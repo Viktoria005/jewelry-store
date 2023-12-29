@@ -1,29 +1,25 @@
 import './signup.css';
 import { useState } from 'react';
+import axios from 'axios';
 import hidePasswordIcon from '../../images/hide-password-icon.png';
 import showPasswordIcon from '../../images/show-password-icon.png';
 
 const Signup = () => {
-  const [showPassword1, setShowPassword1] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [responseMessage, setResponseMessage] = useState(null);
 
-  const togglePasswordVisibility = (field) => {
-    if (field === 1) {
-      setShowPassword1(!showPassword1);
-    } else {
-      setShowPassword2(!showPassword2);
-    }
-  };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  }
 
-  let [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     username: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    pwd: '',
     dateOfBirth: '',
     gender: '',
     profileType: ''
@@ -65,32 +61,44 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.password !== formData.confirmPassword) {
+    if (formData.password !== formData.pwd) {
       setPasswordsMatch(false);
       return;
     }
 
     setPasswordsMatch(true);
 
-    const response = await fetch('api/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await axios.post('http://localhost/jewelry-store/jewelry-store-php/register.php', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    if (response.ok) {
-      window.location.href = '/login';
-    } else {
-      setResponseMessage(<div className='response-message'>Error creating user</div>)
+      // Handle the response here
+      if (response.status === 200) {
+        const data = response.data;
+        if (data.success) {
+          // Handle successful registration
+          window.location.href = '/login';
+        } else {
+          // Handle registration error
+          setResponseMessage(<div className='response-message'>Error creating user</div>);
+        }
+      } else {
+        // Handle non-200 status code
+        setResponseMessage(<div className='response-message'>Server error</div>);
+      }
+    } catch (error) {
+      // Handle network error or any other Axios error
+      setResponseMessage(<div className='response-message'>Network error</div>);
     }
-  }
+  };
 
   return (
     <div className='signup-form'>
       <div className='signup-text'>Create An Account</div>
-      <form onSubmit={handleSubmit} id='signup-form'>
+      <form onSubmit={handleSubmit} id='signup-form' method='post'>
         <div className='content-row'>
           <div className='column'>
             <div className="form-group">
@@ -111,21 +119,19 @@ const Signup = () => {
             </div>
           </div>
           <div className='column'>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <div className='password-group'>
-                <input type={showPassword1 ? "text" : "password"} name='password' value={formData.password} onChange={handleChange} className="password-field" required />
-                <i className={`password-toggle ${showPassword1 ? 'visible' : 'hidden'}`} onClick={() => togglePasswordVisibility(1)}>
-                  <img src={showPassword1 ? hidePasswordIcon : showPasswordIcon} alt="Toggle Password" />
-                </i>
-              </div>
+            <label htmlFor="password">Password</label>
+            <div className='password-group'>
+              <input type={showPassword ? "text" : "password"} name='password' value={formData.password} onChange={handleChange} className="password-field" required />
+              <i className={`password-toggle ${showPassword ? 'visible' : 'hidden'}`} onClick={() => togglePasswordVisibility()}>
+                <img src={showPassword ? hidePasswordIcon : showPasswordIcon} alt="Toggle Password" />
+              </i>
             </div>
             <div className="form-group">
               <label htmlFor="confirm-password">Confirm Password</label>
               <div className='password-group'>
-                <input type={showPassword2 ? "text" : "password"} name='confirmPassword' value={formData.confirmPassword} onChange={handleChange} className="password-field" required />
-                <i className={`password-toggle ${showPassword2 ? 'visible' : 'hidden'}`} onClick={() => togglePasswordVisibility(2)}>
-                  <img src={showPassword2 ? hidePasswordIcon : showPasswordIcon } alt="Toggle Password" />
+                <input type={showPassword ? "text" : "password"} name='pwd' value={formData.pwd} onChange={handleChange} className="password-field" required />
+                <i className={`password-toggle ${showPassword ? 'visible' : 'hidden'}`} onClick={togglePasswordVisibility}>
+                  <img src={showPassword ? hidePasswordIcon : showPasswordIcon} alt="Toggle Password" />
                 </i>
               </div>
             </div>
@@ -139,18 +145,18 @@ const Signup = () => {
                 <option value=""></option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value='croissant'>Croissant</option>
-                <option value='pigeon'>Pigeon</option>
+                <option value='attack-helicopter'>Attack Helicopter</option>
+                <option value="other">Other</option>
               </select>
             </div>
           </div>
         </div>
-        <button type="submit">Sign Up</button>
+        <button id="submit-button" type="submit">Sign Up</button>
         <a className='log-in-link' href='/login'>Already have an account? Log in</a>
         {!passwordsMatch && <div className="error-message">Passwords don&apos;t match</div>}
         {responseMessage}
-      </form>
-    </div>
+      </form >
+    </div >
   );
 };
 
