@@ -7,21 +7,26 @@ body {
   display: flex;
   align-items: center;
   height: 80px;
-  background: rgb(75, 21, 78);
+  background: #38457c;
 }
 
 #sparkly-logo-container {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 #sparkly-logo-btn {
   border: none;
-  background-color: inherit;
   cursor: pointer;
 }
 
 #sparkly-logo {
-  height: 60px; 
+  position:absolute;
+  top:0%;
+  left:5%;
+  height: 80px; 
 }
 
 .nav-content {
@@ -36,29 +41,17 @@ body {
 
 .nav-menu a {
   text-decoration: none;
-  color: #ffffff;
+  color: #b6d0e2;
 }
 
 .login-button,
 .signup-button {
-  background-color: rgb(75, 21, 78);
-  color: white;
+  background-color: #38457c;
   border: none;
   border-radius: 10px;
   padding: 10px;
   cursor: pointer;
   text-decoration: none;
-}
-
-
-
-#sparkly-header ul {
-  margin: 0;
-  padding: 0;
-}
-
-#sparkly-header li {
-  list-style: none;
 }
 
 #sparkly-logo-btn {

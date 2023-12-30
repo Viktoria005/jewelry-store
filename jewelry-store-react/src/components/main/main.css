@@ -1,0 +1,23 @@
+body{
+    background-color: #b6d0e2;
+}
+#type-product-container {
+    height: 15px;
+    padding: 20px; 
+    border: 2px solid #38457c;
+  }
+  
+  .product-menu {
+    margin-right: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly; 
+    padding: 0; 
+  }
+  
+
+  .product-menu a {
+    text-decoration: none;
+    color:#38457c;
+
+  }
