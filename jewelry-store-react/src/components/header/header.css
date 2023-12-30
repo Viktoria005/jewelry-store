@@ -1,26 +1,17 @@
 body {
-  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #sparkly-header {
   display: flex;
   align-items: center;
   height: 80px;
-  width: 100%;
   background: rgb(75, 21, 78);
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
 }
 
 #sparkly-logo-container {
-  display: flex;
   flex: 1;
-}
-
-#sparkly-logo {
-  height: 100px;
-  margin-left: -50%;
 }
 
 #sparkly-logo-btn {
@@ -28,116 +19,53 @@ body {
   background-color: inherit;
   cursor: pointer;
 }
+
+#sparkly-logo {
+  height: 60px; 
+}
+
 .nav-content {
   margin-right: 20px;
 }
+
 .nav-menu {
   list-style: none;
   display: flex;
-  flex-direction: row;
   gap: 20px;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.nav-menu li a {
-  text-decoration: none;
 }
 
 .nav-menu a {
+  text-decoration: none;
   color: #ffffff;
 }
-.sub-menu-products {
-  width: auto;
-  height: auto;
-  display: none;
-  position: absolute;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  margin-left: -40px;
-  background-color: transparent;
-  box-shadow: none;
-  text-align: center;
-}
 
-.sub-menu-products li {
-  color: black;
-  margin-left: -40px;
-  display: block;
-  min-width: 100px;
-  
-}
-
-.sub-menu-products a {
-  display: flex;
-  color: black;
-  background-color: white;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.nav-menu li:hover .sub-menu-products {
-  display: block;
-}
-
-.accunt-menu {
-  display: flex;
-  justify-content: center;
-}
-
-.sub-menu-account {
-  width: auto;
-  height: auto;
-  display: none;
-  position: absolute;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  margin-left: -40px;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.sub-menu-account li {
-  color: black;
-  margin-left: -40px;
-  display: block;
-  min-width: 100px;
-}
-
-.sub-menu-account a {
-  color: black;
-  padding: 10px;
-}
-
-.nav-menu li:hover .sub-menu-account {
-  display: block;
-}
-
-body {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
+.login-button,
 .signup-button {
   background-color: rgb(75, 21, 78);
   color: white;
+  border: none;
   border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
 }
+
 .login-button {
   background-color: white;
   color: black;
-  border-radius: 10px;
 }
 
-.signup-button,
-.login-button {
+#sparkly-header ul {
+  margin: 0;
+  padding: 0;
+}
+
+#sparkly-header li {
+  list-style: none;
+}
+
+#sparkly-logo-btn {
   border: none;
-  width: 200px;
-  padding: 1px;
+  background-color: inherit;
   cursor: pointer;
-  border-radius: 10px;
-  outline: none;
-  display: block;
-  margin: 10px auto;
-  text-align: center;
 }
