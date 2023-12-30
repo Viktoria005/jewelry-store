@@ -5,8 +5,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const Footer = () => {
   return (
     <footer>
-      <div class="footer-logo">
-        <div class="footer-links">
+      <div className="footer-logo">
+        <div className="footer-links">
           <ul>
             <li>
               <a href="#">Home</a>
@@ -22,12 +22,12 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div class="footer-contact">
+        <div className="footer-contact">
           <p>Email: info@sparkly.com</p>
           <p>Phone: 123-456-7890</p>
         </div>
       </div>
-      <div class="footer-social">
+      <div className="footer-social">
         <a
           href="https://www.facebook.com/Restaurant.Silhouette/"
           target="_blank"
@@ -38,7 +38,7 @@ const Footer = () => {
           <i className="bi bi-tiktok"></i>
         </a>
         <a href="https://www.instagram.com/vickyyy.kk/" target="_blank">
-          <i class="fab instagram"></i>
+          <i className="fab instagram"></i>
         </a>
       </div>
     </footer>

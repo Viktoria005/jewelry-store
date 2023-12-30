@@ -9,8 +9,8 @@ const Header = () => {
           <img id="sparkly-logo" src={sparklyLogo} alt="sparkly" />
         </button>
       </div>
-      <div class="nav-content">
-        <ul class="nav-menu">
+      <div className="nav-content">
+        <ul className="nav-menu">
           <li>
             <a href="#">Home</a>
           </li>
