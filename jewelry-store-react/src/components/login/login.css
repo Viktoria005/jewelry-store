@@ -67,7 +67,7 @@
     padding: 12px;
     margin: 35px 0 12px 0;
     font-size: 28px;
-    background-color: rgb(75, 21, 78);
+    background-color: #38457c;
     border: none;
     border-radius: 30px;
     cursor: pointer;
@@ -75,7 +75,7 @@
   }
   
   #login-btn:hover {
-    background-color:rgb(75, 21, 78);
+    background-color:#38457c;
   }
   
   .sign-up-link,

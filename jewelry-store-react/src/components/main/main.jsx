@@ -1,7 +1,10 @@
 import "./main.css";
 
 const Main = () => {
+
+  
   return(
+    <main>
   <div id="type-product-container">
   <ul className="product-menu">
   <li>
@@ -26,6 +29,14 @@ const Main = () => {
 </div>
 
 
+  <div id="image-container">
+  <img id="spa" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="sparkly" />
+
+  </div>
+
+
+
+</main>
   );
 };
 
