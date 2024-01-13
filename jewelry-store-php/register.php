@@ -2,11 +2,11 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: http://localhost:3000');
 header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers:   Content-Type');
+header('Access-Control-Allow-Headers: Content-Type');
 
 $servername = 'localhost';
 $mysqlusername = "root";
-$userpassword = "1234";
+$userpassword = "";
 $dbname = "jewelry_store_db";
 
 $conn = new mysqli($servername, $mysqlusername, $userpassword, $dbname);
