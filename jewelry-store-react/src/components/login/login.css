@@ -1,11 +1,11 @@
-/* body {
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-  
-  .login-text {
+.login-text {
     text-align: center;
     font-weight: bold;
     font-size: 35px;
@@ -90,4 +90,9 @@
   .sign-up-link:hover,
   .forgotten-password:hover {
     text-decoration: underline;
+  }
+
+  .response-message {
+    color: red;
+    font-size: 20px;
   }
