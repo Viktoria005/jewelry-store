@@ -1,60 +1,59 @@
 footer {
-
-    background-color: #38457c;
-    padding: 20px;
-    text-align: center;
+  background-color: #38457c;
+  padding: 20px;
+  text-align: center;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-logo img {
-    max-width: 100px;
+  max-width: 100px;
 }
 
 .footer-links ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .footer-links li {
-    display: inline-block;
-    margin: 0 10px;
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .footer-links a {
-    text-decoration: none;
-    color: #b6d0e2;
+  text-decoration: none;
+  color: #b6d0e2;
 }
 
 .footer-contact p {
-    margin: 5px 0;
-    color:#b6d0e2;
+  margin: 5px 0;
+  color: #b6d0e2;
 }
 
 .footer-social a {
-    display: inline-block;
-    margin: 0 10px;
-    font-size: 1.5em;
-    color: #b6d0e2;
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1.5em;
+  color: #b6d0e2;
 }
 
 .footer-social a:hover {
-    color: #ff5500;
+  color: #ff5500;
 }
 
 /* Font Awesome icons */
-.facebook-f{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhqhCE1ZItBk2eXdpda7hUVibZjDbg_iVhUzQ1_xvmjQ&s");
+.facebook-f {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhqhCE1ZItBk2eXdpda7hUVibZjDbg_iVhUzQ1_xvmjQ&s");
 }
 
 .tiktok::before {
-    content: "\f099";
+  content: "\f099";
 }
 
 .instagram::before {
-    content: "\f16d";
+  content: "\f16d";
 }

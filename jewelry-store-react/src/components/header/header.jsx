@@ -1,7 +1,6 @@
 import "./header.css";
 import sparklyLogo from "../../images/sparkly-logo.png";
 
-
 const Header = () => {
   return (
     <header id="sparkly-header">
