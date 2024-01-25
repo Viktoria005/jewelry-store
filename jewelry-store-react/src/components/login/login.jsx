@@ -32,8 +32,7 @@ const LoginForm = () => {
       const response = await axios.post('http://localhost/jewelry-store/jewelry-store-php/login.php', loginData, {
         headers: {
           'Content-Type': 'application/json',
-        },
-        withCredentials: true,
+        }
       });
 
       if (response.status === 200) {

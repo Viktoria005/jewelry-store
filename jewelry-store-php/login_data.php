@@ -8,8 +8,7 @@ function handleLogin($requestData)
   $username = mysqli_real_escape_string($conn, $requestData['username']);
   $pwd = $requestData['pwd'];
 
-
-  $query = "SELECT userID, pwd, profileType FROM users WHERE username = '$username'";
+  $query = "SELECT userID, pwd FROM users WHERE username = '$username'";
   $result = $conn->query($query);
 
   if ($result->num_rows > 0) {
@@ -17,24 +16,11 @@ function handleLogin($requestData)
     $hashedPwdFromDB = $row['pwd'];
 
     if (password_verify($pwd, $hashedPwdFromDB)) {
-      $userID = $row['userID'];
-      $profileType = $row['profileType'];
-
-      $_SESSION['userID'] = $userID;
-      $_SESSION['username'] = $username;
-      $_SESSION['profileType'] = $profileType;
-
-      return ['success' => true, 'message' => 'Login successful', 'userID' => $userID, 'username' => $username, 'profileType' => $profileType];
+      return ['success' => true, 'message' => 'Login successful'];
     } else {
       return ['success' => false, 'message' => 'Invalid password'];
     }
   } else {
     return ['success' => false, 'message' => 'Invalid username'];
   }
-}
-
-$result = $conn->query($query);
-
-if (!$result) {
-    return ['success' => false, 'message' => 'Database query error: ' . $conn->error];
 }
