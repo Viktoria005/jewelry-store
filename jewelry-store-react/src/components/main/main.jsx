@@ -1,72 +1,40 @@
-import "./main.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
-const CarouselItem = ({ itemName, imageUrl }) => (
-  <div>
-    <img src={imageUrl} alt={itemName} />
-    <p>{itemName}</p>
-  </div>
-);
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Main = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
-  };
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Make a GET request to your PHP endpoint using Axios
+    axios.get('http://localhost/jewelry-store/jewelry-store-php/products.php')
+      .then(response => {
+        // Set the products state with the data received from the server
+        setProducts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  }, []); // This empty dependency array ensures that this effect runs only once after the component mounts
 
   return (
     <main>
       <div id="type-product-container">
         <ul className="product-menu">
-          <li>
-            <a href="#">Rings</a>
-          </li>
-          <li>
-            <a href="#">Engagement rings</a>
-          </li>
-          <li>
-            <a href="#">Necklaces</a>
-          </li>
-          <li>
-            <a href="#">Bracelets</a>
-          </li>
-          <li>
-            <a href="#">Watches</a>
-          </li>
-          <li>
-            <a href="#">Earrings</a>
-          </li>
+          {products.map(product => (
+            <li key={product.id}>
+              <div>
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <p>Price: ${product.price}</p>
+                <img src={product.imageUrl} alt={product.name} />
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
-
-      <div className="slideshow-container">
-        <h3>Popular</h3>
-
-        <Carousel responsive={responsive} className="custom-carousel">
-          <div>Item 1</div>
-          <div>Item 2</div>
-          <div>Item 3</div>
-          <div>Item 4</div>
-        </Carousel>
-        </div>
     </main>
   );
+
 };
 
 export default Main;
