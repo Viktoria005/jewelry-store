@@ -45,7 +45,6 @@ footer {
   color: #ff5500;
 }
 
-/* Font Awesome icons */
 .facebook-f {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhqhCE1ZItBk2eXdpda7hUVibZjDbg_iVhUzQ1_xvmjQ&s");
 }
@@ -56,4 +55,18 @@ footer {
 
 .instagram::before {
   content: "\f16d";
+}
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.map-container {
+  width: 50%;
+}
+
+.social-container {
+  width: 45%;
 }
