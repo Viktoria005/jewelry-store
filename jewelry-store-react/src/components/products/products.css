@@ -1,0 +1,36 @@
+body {
+  background-color: #b6d0e2;
+}
+
+
+.products-container {
+  border-radius: 10px; /* Rounded border */
+  padding: 20px; /* Add padding */
+}
+
+.product-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  width: calc(33.333% - 20px); /* Set width for each product item, adjust as needed */
+  margin: 10px; /* Add margin between products */
+}
+
+.product-content {
+  background-color: #38457c; 
+  color: #b6d0e2;
+  border-radius: 8px; /* Rounded border for each product */
+  padding: 10px; /* Add padding */
+  text-align: center;
+}
+
+.product-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px; 
+}

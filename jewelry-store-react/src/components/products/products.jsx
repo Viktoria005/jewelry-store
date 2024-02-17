@@ -1,32 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import "./products.css";
 
-const MProducts = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Make a GET request to your PHP endpoint using Axios
     axios.get('http://localhost/jewelry-store/jewelry-store-php/products.php')
       .then(response => {
-        // Set the products state with the data received from the server
         setProducts(response.data);
+        setLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching products:', error);
+        setError(error);
+        setLoading(false);
       });
-  }, []); // This empty dependency array ensures that this effect runs only once after the component mounts
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error fetching products: {error.message}</div>;
+  }
 
   return (
     <main>
-      <div id="type-product-container">
+      <div id="type-product-container" className="products-container">
         <ul className="product-menu">
           {products.map(product => (
-            <li key={product.id}>
-              <div>
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
+            <li key={product.id} className="product-item">
+              <div className="product-content">
+                <img src={product.imageUrl} alt={product.productName} />
+                <h3>{product.productName}</h3>
                 <p>Price: ${product.price}</p>
-                <img src={product.imageUrl} alt={product.name} />
               </div>
             </li>
           ))}
@@ -34,7 +44,6 @@ const MProducts = () => {
       </div>
     </main>
   );
-
 };
 
 export default Products;
