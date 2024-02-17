@@ -6,7 +6,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 
 include 'db_connection.php';
-
+ 
 // Query to select products
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
