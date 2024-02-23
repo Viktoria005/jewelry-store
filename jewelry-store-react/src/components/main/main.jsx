@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./main.css";
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   const [products, setProducts] = useState([]);
@@ -34,24 +35,25 @@ const Main = () => {
 
   return (
     <main>
-      <div className="slideshow-container">
-        <br></br>
-        <br></br>
-        <br></br>
+       <div className="slideshow-container">
+        <br />
+        <br />
+        <br />
         <h2> Popular products</h2>
-        <br></br>
+        <br />
         <div className="slide">
           {products.slice(startIndex, startIndex + 3).map(product => (
-            <div key={product.id}>
-              <img src={product.imageUrl} alt={product.name} />
-              <h3>{product.productName}</h3>
+            <div key={product.productId}>
+              <img src={product.imageUrl} alt={product.productName} />
+              <Link to={`/products/${product.productId}`}>
+                <h3>{product.productName}</h3>
+              </Link>
               <p>Price: ${product.price}</p>
-              {/* <p>{product.description}</p> */}
             </div>
           ))}
         </div>
-        <button className="prev" onClick={prevProduct}>&#10094; </button>
-        <button className="next" onClick={nextProduct}> &#10095;</button>
+        <button className="prev" onClick={prevProduct}>&#10094;</button>
+        <button className="next" onClick={nextProduct}>&#10095;</button>
       </div>
 
 

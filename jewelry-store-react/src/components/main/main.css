@@ -18,9 +18,9 @@ body {
 }
 
 .slide div {
-  background-color: #38457c; /* Add background color to product container */
+  background-color: #38457c; 
   color: #b6d0e2;
-  border-radius: 10px; /* Add rounded border */
+  border-radius: 10px; 
   padding: 20px;
 }
 
