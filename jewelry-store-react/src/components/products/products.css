@@ -40,9 +40,10 @@ body {
 
 #productfilter {
   width: 200px; /* Set width of product filter */
-  background-color: #38457c; /* Example background color */
+  background-color: #b6d0e2; /* Example background color */
+  border:5px solid #38457c;
   margin-right: 20px; /* Add margin between filter and products */
-  color:#b6d0e2;
+  color:#38457c;
 }
 
 .container {

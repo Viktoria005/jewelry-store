@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // Import Link
 import "./products.css";
 
 const Products = () => {
@@ -31,24 +32,26 @@ const Products = () => {
     <main className="container">
       <div id="productfilter">
         <h3>Product Filter</h3>
-        </div>
+      </div>
       <div id="type-product-container" className="products-container">
         <ul className="product-menu">
           {products.map(product => (
             <li key={product.id} className="product-item">
-              <div className="product-content">
+              {/* Wrap the product name and image with Link */}
+              
+                <div className="product-content">
+                <Link to={`/products/${product.productId}`}>
                 <img src={product.imageUrl} alt={product.productName} />
-                <h3>{product.productName}</h3>
-                <p>Price: ${product.price}</p>
-                  {/* <p>{product.description}</p>  */}
-             
-              </div>
+                <h3 style={{ color: "#b6d0e2" }}>{product.productName}</h3>
+              </Link>
+                  <p>Price: ${product.price}</p>
+                </div>
+              
             </li>
           ))}
         </ul>
       </div>
     </main>
-    
   );
 };
 

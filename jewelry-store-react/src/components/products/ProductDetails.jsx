@@ -39,7 +39,7 @@ const ProductDetails = () => {
       // Ensure the cart quantity is greater than 1 before decrementing
       setCartQty((cartQty) => cartQty - 1);
     }
-  };
+  };  
 
   return (
     <div className="product-details-container">
