@@ -28,21 +28,24 @@ const Products = () => {
   }
 
   return (
-    <main>
+    <main className="container">
+      <div id="productfilter">
+        <h3>Product Filter</h3>
+        </div>
       <div id="type-product-container" className="products-container">
-        {/* <ul className="product-menu">
+        <ul className="product-menu">
           {products.map(product => (
             <li key={product.id} className="product-item">
               <div className="product-content">
                 <img src={product.imageUrl} alt={product.productName} />
                 <h3>{product.productName}</h3>
                 <p>Price: ${product.price}</p>
-                  <p>{product.description}</p> 
+                  {/* <p>{product.description}</p>  */}
              
               </div>
             </li>
           ))}
-        </ul> */}
+        </ul>
       </div>
     </main>
     

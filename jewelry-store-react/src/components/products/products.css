@@ -6,6 +6,7 @@ body {
 .products-container {
   border-radius: 10px; /* Rounded border */
   padding: 20px; /* Add padding */
+  flex: 1; /* Take remaining space */
 }
 
 .product-menu {
@@ -33,4 +34,19 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 5px; 
+}
+
+
+
+#productfilter {
+  width: 200px; /* Set width of product filter */
+  background-color: #38457c; /* Example background color */
+  margin-right: 20px; /* Add margin between filter and products */
+  color:#b6d0e2;
+}
+
+.container {
+  display: flex; /* Use flexbox */
+  flex-direction: row; /* Items lay out horizontally */
+  justify-content: flex-start; /* Align items to the start of the main axis */
 }
