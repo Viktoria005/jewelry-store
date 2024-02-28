@@ -39,39 +39,45 @@ const ProductDetails = () => {
       // Ensure the cart quantity is greater than 1 before decrementing
       setCartQty((cartQty) => cartQty - 1);
     }
-  };  
+  };
 
   return (
     <div className="product-details-container">
       <div className="product-image-container">
         <img src={product.imageUrl} alt={product.productName} />
       </div>
+
       <div className="product-info-container">
         <h2>{product.productName}</h2>
-        <p>Price: ${product.price}</p>
-        <p>Description: {product.description}</p>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <button onClick={removeQty}>-</button>
-          <input
-            type="number"
-            min="1"
-            max={product.stockQuantity}
-            step={1}
-            value={cartQty}
-            ref={input}
-            onChange={(e) => {
-              const value = parseInt(e.target.value);
-              setCartQty(
-                value < 1
-                  ? 1
-                  : value > product.stockQuantity
-                  ? product.stockQuantity
-                  : value
-              );
-            }}
-          />
-          <button onClick={addQty}>+</button>
+        <p>Description: <hr></hr>{product.description}</p>
+        <div className="price-and-buttons">
+          <div className="price-container">
+            <p>Price: ${product.price}</p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <button onClick={removeQty}>-</button>
+            <input
+              type="number"
+              min="1"
+              max={product.stockQuantity}
+              step={1}
+              value={cartQty}
+              ref={input}
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                setCartQty(
+                  value < 1
+                    ? 1
+                    : value > product.stockQuantity
+                    ? product.stockQuantity
+                    : value
+                );
+              }}
+            />
+            <button onClick={addQty}>+</button>
+          </div>
         </div>
+        <button id="add-to-cart-button">Add to Cart</button>
       </div>
     </div>
   );

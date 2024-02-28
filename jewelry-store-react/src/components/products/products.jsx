@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import "./products.css";
 
 const Products = () => {
@@ -9,12 +9,13 @@ const Products = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost/jewelry-store/jewelry-store-php/products.php')
-      .then(response => {
+    axios
+      .get("http://localhost/jewelry-store/jewelry-store-php/products.php")
+      .then((response) => {
         setProducts(response.data);
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error);
         setLoading(false);
       });
@@ -35,18 +36,15 @@ const Products = () => {
       </div>
       <div id="type-product-container" className="products-container">
         <ul className="product-menu">
-          {products.map(product => (
+          {products.map((product) => (
             <li key={product.id} className="product-item">
-              {/* Wrap the product name and image with Link */}
-              
-                <div className="product-content">
+              <div className="product-content">
                 <Link to={`/products/${product.productId}`}>
-                <img src={product.imageUrl} alt={product.productName} />
-                <h3 style={{ color: "#b6d0e2" }}>{product.productName}</h3>
-              </Link>
-                  <p>Price: ${product.price}</p>
-                </div>
-              
+                  <img src={product.imageUrl} alt={product.productName} />
+                  <h3 style={{ color: "#b6d0e2" }}>{product.productName}</h3>
+                </Link>
+                <p>Price: ${product.price}</p>
+              </div>
             </li>
           ))}
         </ul>

@@ -26,7 +26,10 @@ const Footer = () => {
             <p>Phone: 123-456-7890</p>
           </div>
           <div className="footer-social">
-            <a href="https://www.facebook.com/Restaurant.Silhouette/" target="_blank">
+            <a
+              href="https://www.facebook.com/Restaurant.Silhouette/"
+              target="_blank"
+            >
               <i className="bi bi-facebook"></i>
             </a>
             <a href="https://www.tiktok.com/@vickyyyy.kk" target="_blank">

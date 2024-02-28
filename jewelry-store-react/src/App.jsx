@@ -7,7 +7,6 @@ import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
 import Signup from "./components/singup/signup";
 
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,7 +14,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-function App() { 
+function App() {
   return (
     <>
       <Header />
@@ -23,7 +22,7 @@ function App() {
         <Routes>
           <Route index element={<Navigate replace to="/home" />} />
           <Route path="/home" element={<Main />} />
-          <Route path="/products" element={<Products/>} />
+          <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
 
           <Route path="/login" element={<Login />} />

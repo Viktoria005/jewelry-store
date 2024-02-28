@@ -2,11 +2,10 @@ body {
   background-color: #b6d0e2;
 }
 
-
 .products-container {
-  border-radius: 10px; /* Rounded border */
-  padding: 20px; /* Add padding */
-  flex: 1; /* Take remaining space */
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1;
 }
 
 .product-menu {
@@ -18,36 +17,34 @@ body {
 }
 
 .product-item {
-  width: calc(33.333% - 20px); /* Set width for each product item, adjust as needed */
-  margin: 10px; /* Add margin between products */
+  width: calc(33.333% - 20px);
+  margin: 10px;
 }
 
 .product-content {
-  background-color: #38457c; 
+  background-color: #38457c;
   color: #b6d0e2;
-  border-radius: 8px; /* Rounded border for each product */
-  padding: 10px; /* Add padding */
+  border-radius: 8px;
+  padding: 10px;
   text-align: center;
 }
 
 .product-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
-
-
 #productfilter {
-  width: 200px; /* Set width of product filter */
-  background-color: #b6d0e2; /* Example background color */
-  border:5px solid #38457c;
-  margin-right: 20px; /* Add margin between filter and products */
-  color:#38457c;
+  width: 200px;
+  background-color: #b6d0e2;
+  border: 5px solid #38457c;
+  margin-right: 20px;
+  color: #38457c;
 }
 
 .container {
-  display: flex; /* Use flexbox */
-  flex-direction: row; /* Items lay out horizontally */
-  justify-content: flex-start; /* Align items to the start of the main axis */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }

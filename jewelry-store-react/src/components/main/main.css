@@ -1,5 +1,3 @@
-/* main.css */
-
 body {
   background-color: #b6d0e2;
 }
@@ -18,9 +16,9 @@ body {
 }
 
 .slide div {
-  background-color: #38457c; 
+  background-color: #38457c;
   color: #b6d0e2;
-  border-radius: 10px; 
+  border-radius: 10px;
   padding: 20px;
 }
 
@@ -32,14 +30,13 @@ body {
 
 .prev,
 .next {
-  /* Updated width and height */
   width: 40px;
   height: 40px;
 
   cursor: pointer;
   position: absolute;
   top: 50%;
-  padding: 0; 
+  padding: 0;
   color: #b6d0e2;
   font-weight: bold;
   font-size: 18px;
@@ -57,44 +54,38 @@ body {
   right: 0;
 }
 
-
 .about-us-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 100px;
-  width: 80%; 
+  width: 80%;
 }
 
 .about-us-text {
-  width: 50%; 
+  width: 50%;
   position: relative;
 }
 
-
-.about-us-image img{
-  width: 380px; 
+.about-us-image img {
+  width: 380px;
   height: 380px;
 }
 
-
-
 .about-us-text::before {
-  content: '';
-  border-left: 5px solid #38457c; 
-  height: 100%; 
+  content: "";
+  border-left: 5px solid #38457c;
+  height: 100%;
   position: absolute;
   top: 0;
-  left: -20px; 
+  left: -20px;
 }
 
-
-
 .about-us-text::after {
-  content: '';
+  content: "";
   border-top: 5px solid #38457c;
   width: 100%;
   position: absolute;
-  top: -4px; /* Adjust the positioning of the line */
+  top: -4px;
   left: 0;
 }

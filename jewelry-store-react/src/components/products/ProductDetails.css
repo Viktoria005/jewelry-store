@@ -1,22 +1,89 @@
 .product-details-container {
-    display: flex;
-    flex-direction: row;
-    padding: 40px; /* Add padding to all sides */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 80px;
+  padding-left: 120px;
+  padding-right: 140px;
+  padding-bottom: 100px;
+}
+
+.product-image-container img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+
+
+.product-info-container {
+  display: flex;
+  flex-direction: column;
+  
+  margin-left: 50px;
+}
+
+/* .product-info-container p {
+  margin: 20px;
+} */
+
+.product-info-container .price-and-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.product-info-container .price-and-buttons button,
+.product-info-container .price-and-buttons input[type="number"] {
+  font-size: 1.2em;
+  margin: pox;
+  border-radius: 0px;
+  padding: 5px;
+}
+
+.product-info-container button,
+.product-info-container input[type="number"] {
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  margin: 0px;
+  border-radius: 0px;
+  padding: 5px;
+}
+
+.product-info-container button {
+  background-color: #38457c;
+  color: #b6d0e2;
+  border: none;
+  border-radius: 0px;
+}
+
+.product-info-container input[type="number"] {
+  text-align: center;
+  width: 50px;
+  height: 20px;
+}
+
+.price-container {
+    margin-right: 100px;
   }
   
-  .product-image-container {
-    flex: 1;
-    padding: 40px; /* Add padding to all sides */
+  #add-to-cart-button {
+    background-color: #38457c;
+    color: #b6d0e2;
+    font-size: 1em;
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
   }
   
-  .product-info-container {
-    flex: 1;
-    padding: 40px; /* Add padding to all sides */
+  #add-to-cart-button:hover {
+    background-color: green;
+    
   }
   
-  .product-image-container img {
-    width: 500px; /* Set desired width */
-    height: 500px; /* Set desired height */
-    object-fit: cover; /* Maintain aspect ratio and cover container */
-  }
   
