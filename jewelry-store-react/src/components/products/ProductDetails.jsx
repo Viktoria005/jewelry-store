@@ -49,7 +49,10 @@ const ProductDetails = () => {
 
       <div className="product-info-container">
         <h2>{product.productName}</h2>
-        <p>Description: <hr></hr>{product.description}</p>
+        <p>
+          Description: <hr></hr>
+          {product.description}
+        </p>
         <div className="price-and-buttons">
           <div className="price-container">
             <p>Price: ${product.price}</p>

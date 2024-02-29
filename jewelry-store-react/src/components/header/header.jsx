@@ -5,9 +5,7 @@ const Header = () => {
   return (
     <header id="sparkly-header">
       <div id="sparkly-logo-container">
-        <button id="sparkly-logo-btn" type="button">
-          <img id="sparkly-logo" src={sparklyLogo} alt="sparkly" />
-        </button>
+        <img id="sparkly-logo" src={sparklyLogo} alt="sparkly" />
       </div>
       <div className="nav-content">
         <ul className="nav-menu">

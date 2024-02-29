@@ -33,6 +33,22 @@ const Products = () => {
     <main className="container">
       <div id="productfilter">
         <h3>Product Filter</h3>
+        <h4> Type product </h4>
+
+        <label>
+          <input type="checkbox" name="type" value="type1" />
+          Type 1
+        </label>
+        <label>
+          <input type="checkbox" name="type" value="type2" />
+          Type 2
+        </label>
+        <label>
+          <input type="checkbox" name="type" value="type3" />
+          Type 3
+        </label>
+        <h4> Material</h4>
+        <h4> Price </h4>
       </div>
       <div id="type-product-container" className="products-container">
         <ul className="product-menu">

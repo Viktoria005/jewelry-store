@@ -17,11 +17,6 @@ body {
   justify-content: flex-start;
 }
 
-#sparkly-logo-btn {
-  border: none;
-  cursor: pointer;
-}
-
 #sparkly-logo {
   position: absolute;
   top: 0%;

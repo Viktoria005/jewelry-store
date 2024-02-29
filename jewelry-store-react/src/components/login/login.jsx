@@ -1,65 +1,16 @@
 import "./login.css";
-import { useState } from "react";
-import axios from "axios";
+import LoginFormViewModel from "./login-viewmodel";
 import hidePasswordIcon from "../../images/hide-password-icon.png";
 import showPasswordIcon from "../../images/show-password-icon.png";
 
 const LoginForm = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [responseMessage, setResponseMessage] = useState(null);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const [loginData, setLoginData] = useState({
-    username: "",
-    pwd: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setLoginData({
-      ...loginData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post(
-        "http://localhost/jewelry-store/jewelry-store-php/login.php",
-        loginData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        const data = response.data;
-        if (data.success) {
-          setResponseMessage(
-            <div className="response-message" style={{ color: "black" }}>
-              Logged in successfully
-            </div>
-          );
-          window.location.href = "/home";
-        } else {
-          setResponseMessage(
-            <div className="response-message">Invalid username or password</div>
-          );
-        }
-      } else {
-        console.log("Server error");
-      }
-    } catch (error) {
-      console.log("Network error", error);
-    }
-  };
+  const {
+    showPassword,
+    loginData,
+    togglePasswordVisibility,
+    handleChange,
+    handleSubmit,
+  } = LoginFormViewModel();
 
   return (
     <main>
@@ -110,7 +61,6 @@ const LoginForm = () => {
         <a className="forgotten-password" href="/forgotten-password">
           Forgot your password?
         </a>
-        {responseMessage}
       </div>
     </main>
   );

@@ -48,3 +48,14 @@ body {
   flex-direction: row;
   justify-content: flex-start;
 }
+
+.product-type-checkboxes label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.product-type-checkboxes input[type="checkbox"] {
+  margin-right: 5px;
+  order: -1; /* Moves the checkbox to the beginning */
+}
