@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $rawData = file_get_contents("php://input");
   $requestData = json_decode($rawData, true);
 
-  $firstName = $data['firstName'];
-  $lastName = $data['lastName'];
-  $username = $data['username'];
-  $email = $data['email'];
-  $pwd = password_hash($data['pwd'], PASSWORD_DEFAULT);
-  $dateOfBirth = $data['dateOfBirth'];
-  $gender = $data['gender'];
-  $profileType = $data['profileType'];
+  $firstName = $requestData['firstName'];
+  $lastName = $requestData['lastName'];
+  $username = $requestData['username'];
+  $email = $requestData['email'];
+  $pwd = password_hash($requestData['pwd'], PASSWORD_DEFAULT);
+  $dateOfBirth = $requestData['dateOfBirth'];
+  $gender = $requestData['gender'];
+  $profileType = $requestData['profileType'];
 
   $insertUserQuery = "INSERT INTO users (firstName, lastName, username, email, pwd, dateOfBirth, gender, profileType) VALUES ('$firstName', '$lastName', '$username', '$email', '$pwd', '$dateOfBirth', '$gender', '$profileType')";
 

@@ -1,11 +1,6 @@
 <?php
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost:3000');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS'); // Include other methods if needed
-header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Allow-Credentials: true');
-
-include 'db_connection.php';
+include_once 'headers.php';
+include_once 'db_connection.php';
  
 // Query to select products
 $sql = "SELECT * FROM products";

@@ -40,7 +40,8 @@ const Main = () => {
         <br />
         <br />
         <br />
-        <h2> Popular products</h2>
+        <h1 id="popular-products-text">Popular Products</h1>
+
         <br />
         <div className="slide">
           {products.slice(startIndex, startIndex + 3).map((product) => (

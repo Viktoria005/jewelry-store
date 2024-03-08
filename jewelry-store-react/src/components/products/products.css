@@ -21,6 +21,7 @@ body {
   margin: 10px;
 }
 
+
 .product-content {
   background-color: #38457c;
   color: #b6d0e2;
@@ -38,7 +39,7 @@ body {
 #productfilter {
   width: 200px;
   background-color: #b6d0e2;
-  border: 5px solid #38457c;
+  border-right: 5px solid #38457c;
   margin-right: 20px;
   color: #38457c;
 }

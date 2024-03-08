@@ -40,7 +40,8 @@ body {
 }
 
 .login-button,
-.signup-button {
+.signup-button
+.logout-button {
   background-color: #38457c;
   border: none;
   border-radius: 10px;

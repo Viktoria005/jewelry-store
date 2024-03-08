@@ -6,6 +6,7 @@ import ProductDetails from "./components/products/ProductDetails";
 import Footer from "./components/footer/footer";
 import Login from "./components/login/login";
 import Signup from "./components/singup/signup";
+import AddProduct from "./components/add-product/add-product";
 
 import {
   BrowserRouter as Router,
@@ -14,7 +15,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />
@@ -24,9 +25,9 @@ function App() {
           <Route path="/home" element={<Main />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
-
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/add-product" element={<AddProduct />} />
         </Routes>
       </Router>
       <Footer />
