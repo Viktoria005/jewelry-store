@@ -2,21 +2,27 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import AddToCart from "../../api/add-to-cart";
 
 const ProductDetails = () => {
+  const { addToCart } = AddToCart();
+  const handleProduct = (productID, cartQty) => {
+    addToCart(productID, cartQty);
+  }
+
   const input = useRef();
 
   const [cartQty, setCartQty] = useState(1);
 
-  const { productId } = useParams();
+  const { productID } = useParams();
   const [product, setProduct] = useState({});
 
   useEffect(() => {
     axios
       .get("http://localhost/jewelry-store/jewelry-store-php/products.php")
       .then((response) => {
-        console.log(response.data[productId - 1]);
-        setProduct(response.data[productId - 1]);
+        console.log(response.data[productID - 1]);
+        setProduct(response.data[productID - 1]);
       })
       .catch((error) => {
         console.error("Error fetching products:", error);
@@ -50,7 +56,7 @@ const ProductDetails = () => {
       <div className="product-info-container">
         <h2>{product.productName}</h2>
         <p>
-          Description: <hr></hr>
+          Description:
           {product.description}
         </p>
         <div className="price-and-buttons">
@@ -80,7 +86,7 @@ const ProductDetails = () => {
             <button onClick={addQty}>+</button>
           </div>
         </div>
-        <button id="add-to-cart-button">Add to Cart</button>
+        <button id="add-to-cart-button" onClick={() => handleProduct(product.productID, cartQty)}>Add to Cart</button>
       </div>
     </div>
   );

@@ -55,7 +55,7 @@ const Products = () => {
           {products.map((product) => (
             <li key={product.id} className="product-item">
               <div className="product-content">
-                <Link to={`/products/${product.productId}`}>
+                <Link to={`/products/${product.productID}`}>
                   <img src={product.imageUrl} alt={product.productName} />
                   <h3 style={{ color: "#b6d0e2" }}>{product.productName}</h3>
                 </Link>

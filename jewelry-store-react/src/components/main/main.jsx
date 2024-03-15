@@ -45,8 +45,8 @@ const Main = () => {
         <br />
         <div className="slide">
           {products.slice(startIndex, startIndex + 3).map((product) => (
-            <div key={product.productId}>
-              <Link to={`/products/${product.productId}`}>
+            <div key={product.productID}>
+              <Link to={`/products/${product.productID}`}>
                 <img src={product.imageUrl} alt={product.productName} />
                 <h3 style={{ color: "#b6d0e2" }}>{product.productName}</h3>
               </Link>
@@ -83,7 +83,7 @@ const Main = () => {
           </p>
           <p>
             At Sparkly, we understand that jewelry is more than just an
-            accessory; it is an expression of style and feeling. Whether you're
+            accessory; it is an expression of style and feeling. Whether you&apos;re
             celebrating a milestone or just indulging in a touch of luxury, our
             expertly curated designs suit every taste and occasion. With a
             commitment to authenticity and integrity, we invite you to browse

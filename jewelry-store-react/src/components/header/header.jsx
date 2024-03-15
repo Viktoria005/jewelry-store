@@ -31,7 +31,7 @@ const Header = () => {
             <a href="/products">Products</a>
           </li>
           <li>
-            <a href="#">Shopping Cart</a>
+            <a href="/cart">Shopping Cart</a>
           </li>
           {authenticated ? (
             <li>
