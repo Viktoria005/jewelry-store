@@ -1,0 +1,61 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  padding: 40px; /* Adjust padding as needed */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px; /* Add padding within th and td */
+}
+
+thead {
+  background-color: #e2e2e2;
+  color: black;
+}
+
+tbody {
+  background-color: white;
+}
+
+tr {
+  border-bottom: 1px solid #ddd; /* Add border bottom to each row */
+}
+
+.remove-button {
+  color: black;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: white;
+}
+
+.product-thumbnail img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ .Qty-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc; 
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.Qty-input {
+  
+  height:20px;
+  padding: 8px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  text-align: center;
+} 

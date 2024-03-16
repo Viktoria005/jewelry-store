@@ -32,7 +32,7 @@ body {
 .next {
   width: 40px;
   height: 40px;
-
+background-color: #38457c;
   cursor: pointer;
   position: absolute;
   top: 50%;

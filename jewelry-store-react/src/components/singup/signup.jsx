@@ -142,7 +142,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
-        <button id="submit-button" type="submit">
+        <button className="submit-button" id="submit-button" type="submit">
           Sign Up
         </button>
         <a className="log-in-link" href="/login">

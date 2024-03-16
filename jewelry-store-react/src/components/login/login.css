@@ -1,20 +1,20 @@
 .login-text {
   text-align: center;
   font-weight: bold;
-  font-size: 35px;
-  margin-bottom: 30px;
+  font-size: 25px;
+  margin-bottom: 15px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
-  max-width: 400px;
+  gap: 15px;
+  max-width: 350px;
   margin: 0 auto;
-  padding: 45px;
+  padding: 40px;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -22,22 +22,21 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
-label {
+.log-in-label {
   display: block;
-  font-weight: bold;
-  font-size: 22px;
-  padding-left: 4px;
+  font-size: 20px;
+  padding-left: 6px;
 }
 
-input {
+.log-in-input {
   width: calc(100% - 20px);
-  padding: 14px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 15px;
-  font-size: 26px;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
 .password-group {
@@ -51,7 +50,7 @@ input {
 }
 
 .password-toggle img {
-  width: 50px;
+  width: 40px;
   height: auto;
 }
 
@@ -59,10 +58,11 @@ input {
   width: 100%;
   padding: 12px;
   margin: 35px 0 12px 0;
-  font-size: 28px;
+  font-size: 25px;
   background-color: #38457c;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
+  color:#b6d0e2;
   cursor: pointer;
   align-self: center;
 }

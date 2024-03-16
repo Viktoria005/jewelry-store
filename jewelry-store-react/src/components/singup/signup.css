@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 30px;
-  padding: 45px;
+  width: 60%;
+  padding: 25px;
   border: 1px solid #ccc;
-  border-radius: 25px;
+  border-radius: 30px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 #signup-form {
@@ -15,28 +16,28 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 }
 
 .signup-text {
   text-align: center;
   font-weight: bold;
-  font-size: 35px;
-  margin-bottom: 30px;
+  font-size: 23px;
+  margin-bottom: 25px;
 }
 
 .content-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 80px;
+  gap: 100px;
 }
 
 .column {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10px;
 }
 
 .form-group {
@@ -48,16 +49,16 @@
 label {
   display: block;
   font-weight: bold;
-  font-size: 22px;
-  padding-left: 4px;
+  font-size: 15px;
+  padding-left: 10px;
 }
 
 input {
   width: calc(100% - 20px);
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  font-size: 26px;
+  padding: 10px;
+  border: 1px solid #38457c;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
 .password-group {
@@ -71,16 +72,16 @@ input {
 }
 
 .password-toggle img {
-  width: 50px;
+  width: 35px;
   height: auto;
 }
 
 #gender {
   width: calc(100%);
-  padding: 14px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  font-size: 26px;
+  padding: 10px;
+  border: 1px solid #38457c;
+  border-radius: 10px;
+  font-size: 20px;
   background-color: #fff;
   transition: 0.3s;
 }
@@ -96,20 +97,17 @@ input {
   margin-top: -10px;
 }
 
-button {
-  width: 80%;
-  padding: 12px;
+.submit-button {
+  width: 50%;
+  padding: 10px;
   margin: 35px 0 12px 0;
-  font-size: 28px;
+  font-size: 20px;
+  color: #b6d0e2;
   background-color: #38457c;
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   cursor: pointer;
   align-self: center;
-}
-
-button:hover {
-  background-color: #38457c;
 }
 
 .log-in-link {

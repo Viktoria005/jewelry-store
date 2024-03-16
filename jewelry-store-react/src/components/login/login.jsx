@@ -19,8 +19,8 @@ const LoginForm = () => {
         <div className="login-text">Login</div>
         <form onSubmit={handleSubmit} id="login-form" method="post">
           <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
+            <label className="log-in-label" htmlFor="username">Username</label>
+            <input className="log-in-input"
               type="text"
               name="username"
               onChange={handleChange}
@@ -29,9 +29,9 @@ const LoginForm = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label className="log-in-label" htmlFor="password">Password</label>
             <div className="password-group">
-              <input
+              <input className="log-in-input"
                 id="password"
                 type={showPassword ? "text" : "password"}
                 name="pwd"
@@ -58,9 +58,6 @@ const LoginForm = () => {
         </form>
         <a className="sign-up-link" href="/signup">
           Don&apos;t have an account yet? Sign up
-        </a>
-        <a className="forgotten-password" href="/forgotten-password">
-          Forgot your password?
         </a>
       </div>
     </main>
