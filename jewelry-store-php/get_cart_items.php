@@ -13,34 +13,23 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $cartID = $row['cartID'];
 
-  $query = "SELECT productID FROM cart_items WHERE cartID = '$cartID'";
+  $query = "SELECT ci.productID, ci.productQuantity, p.* FROM cart_items ci 
+            INNER JOIN products p ON ci.productID = p.productID
+            WHERE ci.cartID = '$cartID'";
   $result = $conn->query($query);
 
   if ($result->num_rows > 0) {
-    $productIDs = array(); // Change variable name to make it clear it's an array
+    $cartProducts = array();
 
     while ($row = $result->fetch_assoc()) {
-      $productIDs[] = $row['productID']; // Store only the productID
+      // Add cartID to each item in cartProducts
+      $row['cartID'] = $cartID;
+      $cartProducts[] = $row;
     }
 
-    $productIDsStr = implode(",", $productIDs); // Convert array to comma-separated string for the IN clause
-
-    $query = "SELECT * FROM products WHERE productID IN ($productIDsStr)"; // Use IN clause to fetch products
-    $result = $conn->query($query);
-
-    if ($result->num_rows > 0) {
-      $cartProducts = array();
-
-      while ($row = $result->fetch_assoc()) {
-        $cartProducts[] = $row;
-      }
-
-      echo json_encode($cartProducts);
-    } else {
-      echo json_encode(array('message' => 'No products found in the cart'));
-    }
+    echo json_encode($cartProducts);
   } else {
-    echo json_encode(array('message' => 'No items found in the cart'));
+    echo json_encode(array('message' => 'No products found in the cart'));
   }
 } else {
   echo json_encode(array('message' => 'Cart not found for this user'));

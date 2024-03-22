@@ -15,12 +15,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $gender = $requestData['gender'];
   $profileType = $requestData['profileType'];
 
-  $insertUserQuery = "INSERT INTO users (firstName, lastName, username, email, pwd, dateOfBirth, gender, profileType) VALUES ('$firstName', '$lastName', '$username', '$email', '$pwd', '$dateOfBirth', '$gender', '$profileType')";
+  $query = "INSERT INTO users (firstName, lastName, username, email, pwd, dateOfBirth, gender, profileType) VALUES ('$firstName', '$lastName', '$username', '$email', '$pwd', '$dateOfBirth', '$gender', '$profileType')";
 
-  if ($conn->query($insertUserQuery) === TRUE) {
-    $response = ['success' => true, 'message' => 'New record created successfully'];
+  if ($conn->query($query) === TRUE) {
+    $userID = $conn->insert_id;
+    $query = "INSERT INTO cart (userID) VALUES ($userID)";
+    if ($conn->query($query) === TRUE) {
+      $response = ['success' => true, 'message' => 'New record created successfully'];
+    } else {
+      $response =  ['success' => false, 'message' => "Couldn't create cart: " . $conn->error];
+    }
   } else {
-    $response =  ['success' => false, 'message' => 'Error: ' . $conn->error];
+    $response =  ['success' => false, 'message' => "Couldn't create user: " . $conn->error];
   }
 
   echo json_encode($response);

@@ -2,18 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import IsAuthenticated from "../../api/is-athenticated";
 import AddToCart from "../../api/add-to-cart";
+import Alert from '@mui/material/Alert';
 
 const ProductDetails = () => {
+  const [responseMessage, setResponseMessage] = useState(null);
+  const { authenticated } = IsAuthenticated();
   const { addToCart } = AddToCart();
-  const handleProduct = (productID, cartQty) => {
-    addToCart(productID, cartQty);
-  }
-
   const input = useRef();
-
   const [cartQty, setCartQty] = useState(1);
-
   const { productID } = useParams();
   const [product, setProduct] = useState({});
 
@@ -29,23 +27,29 @@ const ProductDetails = () => {
       });
   }, []);
 
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
   const addQty = () => {
     if (cartQty < product.stockQuantity) {
-      // Ensure the cart quantity is greater than 1 before decrementing
       setCartQty((cartQty) => cartQty + 1);
     }
   };
 
   const removeQty = () => {
     if (cartQty > 1) {
-      // Ensure the cart quantity is greater than 1 before decrementing
       setCartQty((cartQty) => cartQty - 1);
     }
   };
+
+  const handleAddToCart = () => {
+    if (authenticated) {
+      addToCart(product.productID, cartQty);
+    } else {
+      setResponseMessage(<Alert severity="warning">You need to be logged in!</Alert>)
+    }
+  };
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="product-details-container">
@@ -86,7 +90,8 @@ const ProductDetails = () => {
             <button onClick={addQty}>+</button>
           </div>
         </div>
-        <button id="add-to-cart-button" onClick={() => handleProduct(product.productID, cartQty)}>Add to Cart</button>
+        <button id="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+        {responseMessage}
       </div>
     </div>
   );

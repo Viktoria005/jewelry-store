@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
         <div className="social-container">
           <div className="footer-contact">
-            <p>Blvd "James Bourchier" 65</p>
+            <p>Blvd &quot;James Bourchier&quot; 65</p>
             <p>Sofia, Bulgaria</p>
             <p>Email: info@sparkly.com</p>
             <p>Phone: 123-456-7890</p>
@@ -30,13 +30,14 @@ const Footer = () => {
             <a
               href="https://www.facebook.com/Restaurant.Silhouette/"
               target="_blank"
+              rel="noreferrer"
             >
               <i className="bi bi-facebook"></i>
             </a>
-            <a href="https://www.tiktok.com/@vickyyyy.kk" target="_blank">
+            <a href="https://www.tiktok.com/@vickyyyy.kk" target="_blank" rel="noreferrer">
               <i className="bi bi-tiktok"></i>
             </a>
-            <a href="https://www.instagram.com/vickyyy.kk/" target="_blank">
+            <a href="https://www.instagram.com/vickyyy.kk/" target="_blank" rel="noreferrer">
               <i className="fab fa-instagram"></i>
             </a>
           </div>

@@ -7,7 +7,7 @@ import IsAdmin from "../../api/is-admin";
 
 const Header = () => {
   const { authenticated } = IsAuthenticated();
-  const {authenticatedAdmin} = IsAdmin();
+  const { authenticatedAdmin } = IsAdmin();
   const logout = useLogout();
 
   return (
@@ -22,23 +22,25 @@ const Header = () => {
           </li>
           {authenticatedAdmin && (
             <li>
-            <a href="/add-product" className="add-product-button">
-              Add Product
-            </a>
-          </li>
+              <a href="/add-product" className="add-product-button">
+                Add Product
+              </a>
+            </li>
           )}
           <li>
             <a href="/products">Products</a>
           </li>
-          <li>
-            <a href="/cart">Shopping Cart</a>
-          </li>
           {authenticated ? (
-            <li>
-            <a href="/" className="logout-button" onClick={logout}>
-              Logout
-            </a>
-          </li>
+            <>
+              <li>
+                <a href="/cart">Shopping Cart</a>
+              </li>
+              <li>
+                <a href="/" className="logout-button" onClick={logout}>
+                  Logout
+                </a>
+              </li>
+            </>
           ) : (
             <>
               <li>
