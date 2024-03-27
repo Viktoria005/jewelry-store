@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import Alert from "@mui/material/Alert";
 
 const LoginData = () => {
+  const [responseMessage, setResponseMessage] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({
     username: "",
@@ -44,8 +46,14 @@ const LoginData = () => {
         sessionStorage.setItem("gender  ", response.data.gender);
         sessionStorage.setItem("profileType", response.data.profileType);
 
+        setResponseMessage(
+          <Alert severity="success">Logged in successfully</Alert>
+        );
         window.location.href = "/home";
       } else {
+        setResponseMessage(
+          <Alert severity="error">Invalid username or password</Alert>
+        );
         console.log(response.data.message);
       }
     } catch (error) {
@@ -59,6 +67,7 @@ const LoginData = () => {
     togglePasswordVisibility,
     handleChange,
     handleSubmit,
+    responseMessage
   };
 };
 

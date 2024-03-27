@@ -11,6 +11,7 @@ const LoginForm = () => {
     togglePasswordVisibility,
     handleChange,
     handleSubmit,
+    responseMessage
   } = LoginData();
 
   return (
@@ -59,6 +60,7 @@ const LoginForm = () => {
         <a className="sign-up-link" href="/signup">
           Don&apos;t have an account yet? Sign up
         </a>
+      {responseMessage}
       </div>
     </main>
   );

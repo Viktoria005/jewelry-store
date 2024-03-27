@@ -92,5 +92,9 @@ background-color: #38457c;
 
 #popular-products-text {
   padding-left: 50px;
+  text-align:justify;
 }
 
+.p{
+  text-align:justify;
+}

@@ -9,6 +9,8 @@ import Login from "./components/login/login";
 import Signup from "./components/singup/signup";
 import AddProduct from "./components/add-product/add-product";
 import Cart from "./components/cart/cart";
+import Checkout from "./components/checkout/checkout";
+
 
 import {
   BrowserRouter as Router,
@@ -31,6 +33,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </Router>
       <Footer />

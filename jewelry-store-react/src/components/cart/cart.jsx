@@ -1,5 +1,6 @@
 import "./cart.css";
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link
 import FetchCartItems from "../../api/get-cart-items";
 import RemoveCartItem from "../../api/remove-cart-item";
 import { CiCircleRemove } from "react-icons/ci";
@@ -31,7 +32,9 @@ const Cart = () => {
               <td className="product-remove">
                 <button
                   className="remove-button"
-                  onClick={() => handleRemoval(cartProduct.productID, cartProduct.cartID)} // Pass both cartItemID and cartID
+                  onClick={() =>
+                    handleRemoval(cartProduct.productID, cartProduct.cartID)
+                  }
                 >
                   <CiCircleRemove size="30px" />
                 </button>
@@ -55,6 +58,15 @@ const Cart = () => {
           ))}
         </tbody>
       </table>
+
+      <div className="cart-buttons">
+        <Link className="back-to-products-link" to="/products">
+          <button className="back-to-products-button">Back to Products</button>
+        </Link>
+        <Link className="checkout-link" to="/checkout">
+          <button className="checkout-button">Checkout</button>
+        </Link>
+      </div>
     </div>
   );
 };
