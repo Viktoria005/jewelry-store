@@ -3,23 +3,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Radio from "@mui/material/Radio";
 import ProductFilter from "../../api/product-filter";
 
 const Products = () => {
-  const { filteredProducts, handleCheckboxChange, selectedFilters } =
-    ProductFilter();
+  const {
+    filteredProducts,
+    handleCheckboxChange,
+    handleShowAll,
+    selectedFilters,
+  } = ProductFilter();
 
   return (
     <main className="container">
       <div id="productfilter">
         <h3>Product Filter</h3>
+        <FormControlLabel
+          control={
+            <Radio
+              checked={!Object.values(selectedFilters).some(Boolean)}
+              onChange={handleShowAll}
+              size="small"
+            />
+          }
+          label="Show All products"
+        />
         <h4> Type product </h4>
         <FormGroup>
           <FormControlLabel
             control={
-              <Checkbox
+              <Radio
                 checked={selectedFilters.rings}
                 onChange={handleCheckboxChange}
                 name="rings"
@@ -30,7 +43,7 @@ const Products = () => {
           />
           <FormControlLabel
             control={
-              <Checkbox
+              <Radio
                 checked={selectedFilters.earrings}
                 onChange={handleCheckboxChange}
                 name="earrings"
@@ -41,7 +54,7 @@ const Products = () => {
           />
           <FormControlLabel
             control={
-              <Checkbox
+              <Radio
                 checked={selectedFilters.necklaces}
                 onChange={handleCheckboxChange}
                 name="necklaces"
@@ -52,7 +65,7 @@ const Products = () => {
           />
           <FormControlLabel
             control={
-              <Checkbox
+              <Radio
                 checked={selectedFilters.bracelets}
                 onChange={handleCheckboxChange}
                 name="bracelets"
@@ -61,9 +74,10 @@ const Products = () => {
             }
             label="Bracelets"
           />
-          <FormControlLabel
+
+          {/* <FormControlLabel
             control={
-              <Checkbox
+              <Radio
                 checked={selectedFilters.cronws}
                 onChange={handleCheckboxChange}
                 name="crowns"
@@ -71,21 +85,36 @@ const Products = () => {
               />
             }
             label="Crowns"
-          />
+          /> */}
+          
         </FormGroup>
+
         <h4> Material</h4>
+
         <FormControlLabel
-          control={<Checkbox name="gold" size="small" />}
+          value="end"
+          control={<Radio name="gold" size="small" />}
           label="Gold"
         />
         <FormControlLabel
-          control={<Checkbox name="silver" size="small" />}
+          value="end"
+          control={<Radio name="silver" size="small" />}
           label="Silver"
         />
-
         <h4> Price </h4>
-        <Radio label="Descending order" defaultChecked />
-        <Radio label="Ascending" defaultChecked />
+
+        <FormControlLabel
+          value="end"
+          control={<Radio name="DescendingOrder" size="small" />}
+          label="Descending order"
+        />
+        <FormControlLabel
+          value="end"
+          control={<Radio name="Ascending" size="small" />}
+          label="Ascending"
+        />
+        {/* 
+         <button onClick={handleShowAll}>Show All</button> */}
       </div>
 
       <div id="type-product-container" className="products-container">

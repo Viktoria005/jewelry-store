@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $cartID = $row['cartID'];
 
-  $query = "SELECT ci.productID, ci.productQuantity, p.* FROM cart_items ci 
+  $query = "SELECT ci.*, p.* FROM cart_items ci 
             INNER JOIN products p ON ci.productID = p.productID
             WHERE ci.cartID = '$cartID'";
   $result = $conn->query($query);
