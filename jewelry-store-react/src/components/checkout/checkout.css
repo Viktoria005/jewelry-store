@@ -34,7 +34,7 @@
   }
   
   .purchase:hover {
-    background-color: rgba(56, 69, 224, 0.8)
+    background-color: rgba(56, 69, 224, 0.8);
   }
   
   /* color: #b6d0e2; */
@@ -49,5 +49,5 @@
   }
   
   .back-to-cart-button:hover {
-    background-color: rgba(56, 69, 224, 0.8)
+    background-color: rgba(56, 69, 224, 0.8);
   }

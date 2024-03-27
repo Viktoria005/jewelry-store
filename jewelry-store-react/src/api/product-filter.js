@@ -12,13 +12,14 @@ const ProductFilter = () => {
     gold: false,
     silver: false,
   });
+  const [selectedPrice, setSelectedPrice] = useState(""); // Initialize with an empty string or any default value
 
   useEffect(() => {
     const sendFiltersToServer = async () => {
       try {
         const params = {};
 
-        // Check for selected type and material
+        // Check for selected type, material, and price
         const selectedType = Object.keys(selectedFilters).find(
           (key) => key !== "gold" && key !== "silver" && selectedFilters[key]
         );
@@ -28,6 +29,7 @@ const ProductFilter = () => {
 
         if (selectedType) params.type = selectedType;
         if (selectedMaterial) params.material = selectedMaterial;
+        if (selectedPrice) params.price = selectedPrice;
 
         const response = await axios.get(
           "http://localhost/jewelry-store/jewelry-store-php/product_filter.php",
@@ -40,7 +42,7 @@ const ProductFilter = () => {
     };
 
     sendFiltersToServer();
-  }, [selectedFilters]);
+  }, [selectedFilters, selectedPrice]);
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -72,8 +74,6 @@ const ProductFilter = () => {
       }
     });
   };
-  
-  
 
   const handleShowAll = () => {
     setSelectedFilters({
@@ -86,7 +86,18 @@ const ProductFilter = () => {
     });
   };
 
-  return { filteredProducts, handleCheckboxChange, handleShowAll, selectedFilters };
+  const handlePriceChange = (event) => {
+    setSelectedPrice(event.target.value);
+  };
+
+  return {
+    filteredProducts,
+    handleCheckboxChange,
+    handleShowAll,
+    handlePriceChange,
+    selectedFilters,
+    selectedPrice,
+  };
 };
 
 export default ProductFilter;

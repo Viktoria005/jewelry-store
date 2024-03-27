@@ -60,7 +60,7 @@
 .product-info-container input[type="number"] {
   text-align: center;
   width: 50px;
-  height: 20px;
+  height: 18px;
 }
 
 .price-container {
@@ -79,5 +79,5 @@
 }
 
 #add-to-cart-button:hover {
-  background-color: green;
+  background-color: rgba(56, 69, 224, 0.8);
 }

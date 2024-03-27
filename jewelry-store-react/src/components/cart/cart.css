@@ -59,3 +59,35 @@ tr {
   border-radius: 4px; 
   text-align: center;
 } 
+
+.checkout-button{
+  background-color: #38457c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.back-to-products-button{
+  background-color: #38457c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.back-to-products-button:hover {
+  background-color: rgba(56, 69, 224, 0.8);
+}
+
+.checkout-button:hover {
+  background-color: rgba(56, 69, 224, 0.8);
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: space-between; /* Distribute space between buttons */
+  margin-top: 20px; /* Add margin between buttons and table */
+}

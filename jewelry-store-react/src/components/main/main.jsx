@@ -9,7 +9,7 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost/jewelry-store/jewelry-store-php/products.php")
+      .get("http://localhost/jewelry-store/jewelry-store-php/products_slideshow.php")
       .then((response) => {
         setProducts(response.data);
       })
@@ -18,8 +18,15 @@ const Main = () => {
       });
   }, []);
 
+  useEffect(() => {
+    // Update startIndex when products change
+    if (products.length > 0) {
+      setStartIndex(0);
+    }
+  }, [products]);
+
   const nextProduct = () => {
-    if (startIndex + 1 < products.length) {
+    if (startIndex + 3 < products.length) {
       setStartIndex((prevIndex) => prevIndex + 1);
     } else {
       setStartIndex(0);
@@ -28,7 +35,7 @@ const Main = () => {
 
   const prevProduct = () => {
     if (startIndex === 0) {
-      setStartIndex(products.length - 1);
+      setStartIndex(products.length - 3);
     } else {
       setStartIndex((prevIndex) => prevIndex - 1);
     }
@@ -73,23 +80,12 @@ const Main = () => {
 
         <div className="about-us-text">
           <h2>About Us</h2>
-          <p>
-            Welcome to Sparkly, where fine craftsmanship meets timeless
-            elegance. Created with a passion for luxury and a commitment to
-            impeccable quality, we offer a curated selection of fine jewelry to
-            adorn the most precious moments of your life. From dazzling diamonds
-            to radiant gemstones, each piece in our collection is meticulously
-            crafted to capture the essence of sophistication and beauty.
-          </p>
-          <p>
-            At Sparkly, we understand that jewelry is more than just an
-            accessory; it is an expression of style and feeling. Whether you&apos;re
-            celebrating a milestone or just indulging in a touch of luxury, our
-            expertly curated designs suit every taste and occasion. With a
-            commitment to authenticity and integrity, we invite you to browse
-            our unparalleled selection and experience the epitome of Sparkly
-            elegance.
-          </p>
+          <p style={{textAlign: 'justify'}}>
+    Welcome to Sparkly, where fine craftsmanship meets timeless elegance. Created with a passion for luxury and a commitment to impeccable quality, we offer a curated selection of fine jewelry to adorn the most precious moments of your life. From dazzling diamonds to radiant gemstones, each piece in our collection is meticulously crafted to capture the essence of sophistication and beauty.
+  </p>
+  <p style={{textAlign: 'justify'}}>
+    At Sparkly, we understand that jewelry is more than just an accessory, it is an expression of style and feeling. Whether you аre celebrating a milestone or just indulging in a touch of luxury, our expertly curated designs suit every taste and occasion. With a commitment to authenticity and integrity, we invite you to browse our unparalleled selection and experience the epitome of Sparkly elegance.
+  </p>
         </div>
       </div>
     </main>

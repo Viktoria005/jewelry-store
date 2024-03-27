@@ -1,4 +1,3 @@
-// products.js
 import "./products.css";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -7,12 +6,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import ProductFilter from "../../api/product-filter";
 
+
 const Products = () => {
   const {
     filteredProducts,
     handleCheckboxChange,
     handleShowAll,
+    handlePriceChange,
     selectedFilters,
+    selectedPrice,
   } = ProductFilter();
 
   return (
@@ -104,15 +106,13 @@ const Products = () => {
         <h4> Price </h4>
 
         <FormControlLabel
-          value="end"
-          control={<Radio name="DescendingOrder" size="small" />}
-          label="Descending order"
-        />
-        <FormControlLabel
-          value="end"
-          control={<Radio name="Ascending" size="small" />}
-          label="Ascending"
-        />
+            control={<Radio checked={selectedPrice === "DescendingOrder"} onChange={handlePriceChange} value="DescendingOrder" />}
+            label="Descending order"
+          />
+          <FormControlLabel
+            control={<Radio checked={selectedPrice === "Ascending"} onChange={handlePriceChange} value="Ascending" />}
+            label="Ascending order"
+          />
       </div>
 
       <div id="type-product-container" className="products-container">

@@ -35,18 +35,31 @@ if(isset($_GET['material'])) {
     $filters[] = "material = '$material'";
 }
 
+// Check if any filter is set for price range
+if(isset($_GET['price'])) {
+    $price = $_GET['price'];
+    if ($price === "DescendingOrder") {
+        $orderBy = "ORDER BY price DESC";
+    } elseif ($price === "Ascending") {
+        $orderBy = "ORDER BY price ASC";
+    }
+}
+
 // Build the WHERE clause based on filters
 $whereClause = '';
 if (!empty($filters)) {
     $whereClause = 'WHERE ' . implode(' AND ', $filters);
 }
 
+// Build the ORDER BY clause
+$orderBy = isset($orderBy) ? $orderBy : '';
+
 // Query to select filtered products
-$sql = "SELECT * FROM products $whereClause";
+$sql = "SELECT * FROM products $whereClause $orderBy";
 
 // If no filters are applied, query all products
 if (empty($filters)) {
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT * FROM products $orderBy";
 }
 
 $result = $conn->query($sql);
