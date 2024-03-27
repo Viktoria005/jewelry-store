@@ -1,3 +1,4 @@
+// product-filter.js
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -8,30 +9,31 @@ const ProductFilter = () => {
     earrings: false,
     necklaces: false,
     bracelets: false,
-    // crowns: false,
+    gold: false,
+    silver: false,
   });
 
   useEffect(() => {
     const sendFiltersToServer = async () => {
       try {
-        const selectedTypes = Object.keys(selectedFilters).filter(
-          (key) => selectedFilters[key]
+        const params = {};
+
+        // Check for selected type and material
+        const selectedType = Object.keys(selectedFilters).find(
+          (key) => key !== "gold" && key !== "silver" && selectedFilters[key]
         );
-        
-        if (selectedTypes.length > 0) {
-          const response = await axios.get(
-            "http://localhost/jewelry-store/jewelry-store-php/product_filter.php",
-            {
-              params: { type: selectedTypes.join(",") },
-            }
-          );
-          setFilteredProducts(response.data);
-        } else {
-          const response = await axios.get(
-            "http://localhost/jewelry-store/jewelry-store-php/product_filter.php"
-          );
-          setFilteredProducts(response.data);
-        }
+        const selectedMaterial = Object.keys(selectedFilters).find(
+          (key) => (key === "gold" || key === "silver") && selectedFilters[key]
+        );
+
+        if (selectedType) params.type = selectedType;
+        if (selectedMaterial) params.material = selectedMaterial;
+
+        const response = await axios.get(
+          "http://localhost/jewelry-store/jewelry-store-php/product_filter.php",
+          { params }
+        );
+        setFilteredProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -41,16 +43,37 @@ const ProductFilter = () => {
   }, [selectedFilters]);
 
   const handleCheckboxChange = (event) => {
-    const updatedFilters = { ...selectedFilters };
-    
-    // Uncheck all other checkboxes when one is checked
-    Object.keys(updatedFilters).forEach((key) => {
-      updatedFilters[key] = false;
+    const { name, checked } = event.target;
+    setSelectedFilters((prevFilters) => {
+      if ((name === "gold" || name === "silver") && checked) {
+        // If material checkbox is checked, uncheck other material checkboxes
+        const newFilters = { ...prevFilters };
+        Object.keys(prevFilters)
+          .filter((key) => key === "gold" || key === "silver")
+          .forEach((key) => {
+            if (key !== name) {
+              newFilters[key] = false;
+            }
+          });
+        return { ...newFilters, [name]: checked };
+      } else if (checked) {
+        // If a product type checkbox is checked, uncheck other product type checkboxes
+        const newFilters = { ...prevFilters };
+        Object.keys(prevFilters)
+          .filter((key) => key !== "gold" && key !== "silver")
+          .forEach((key) => {
+            if (key !== name) {
+              newFilters[key] = false;
+            }
+          });
+        return { ...newFilters, [name]: checked };
+      } else {
+        return { ...prevFilters, [name]: checked };
+      }
     });
-    
-    updatedFilters[event.target.name] = event.target.checked;
-    setSelectedFilters(updatedFilters);
   };
+  
+  
 
   const handleShowAll = () => {
     setSelectedFilters({
@@ -58,7 +81,8 @@ const ProductFilter = () => {
       earrings: false,
       necklaces: false,
       bracelets: false,
-      // crowns: false,
+      gold: false,
+      silver: false,
     });
   };
 

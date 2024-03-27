@@ -29,6 +29,12 @@ if(isset($_GET['type'])) {
     }
 }
 
+// Check if any filter is set for material
+if(isset($_GET['material'])) {
+    $material = $_GET['material'];
+    $filters[] = "material = '$material'";
+}
+
 // Build the WHERE clause based on filters
 $whereClause = '';
 if (!empty($filters)) {

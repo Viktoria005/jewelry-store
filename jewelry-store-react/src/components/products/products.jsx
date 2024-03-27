@@ -1,3 +1,4 @@
+// products.js
 import "./products.css";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -74,31 +75,30 @@ const Products = () => {
             }
             label="Bracelets"
           />
-
-          {/* <FormControlLabel
-            control={
-              <Radio
-                checked={selectedFilters.cronws}
-                onChange={handleCheckboxChange}
-                name="crowns"
-                size="small"
-              />
-            }
-            label="Crowns"
-          /> */}
-          
         </FormGroup>
 
         <h4> Material</h4>
 
         <FormControlLabel
-          value="end"
-          control={<Radio name="gold" size="small" />}
+          control={
+            <Radio
+              checked={selectedFilters.gold}
+              onChange={handleCheckboxChange}
+              name="gold"
+              size="small"
+            />
+          }
           label="Gold"
         />
         <FormControlLabel
-          value="end"
-          control={<Radio name="silver" size="small" />}
+          control={
+            <Radio
+              checked={selectedFilters.silver}
+              onChange={handleCheckboxChange}
+              name="silver"
+              size="small"
+            />
+          }
           label="Silver"
         />
         <h4> Price </h4>
@@ -113,14 +113,11 @@ const Products = () => {
           control={<Radio name="Ascending" size="small" />}
           label="Ascending"
         />
-        {/* 
-         <button onClick={handleShowAll}>Show All</button> */}
       </div>
 
       <div id="type-product-container" className="products-container">
         <ul className="product-menu">
           {filteredProducts.length > 0 ? (
-            // If there are filtered products, map over them and display
             filteredProducts.map((product) => (
               <li key={product.productID} className="product-item">
                 <div className="product-content">
@@ -133,7 +130,6 @@ const Products = () => {
               </li>
             ))
           ) : (
-            // If no products are available for the selected category, display a message
             <p>No products available for the selected category.</p>
           )}
         </ul>
