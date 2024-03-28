@@ -17,11 +17,15 @@ const FetchCartItems = () => {
         setCartProducts(response.data);
       })
       .catch(error => {
-        console.error('Error fetching trips:', error);
+        console.error('Error fetching cart items:', error);
       });
-  }
+  };
 
-  return { cartProducts, fetchCartItems };
+  const refetchCart = () => {
+    fetchCartItems();
+  };
+
+  return { cartProducts, refetchCart };
 };
 
 export default FetchCartItems;
