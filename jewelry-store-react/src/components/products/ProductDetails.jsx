@@ -4,12 +4,10 @@ import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import IsAuthenticated from "../../api/is-athenticated";
 import AddToCart from "../../api/add-to-cart";
-import Alert from '@mui/material/Alert';
 
 const ProductDetails = () => {
-  const [responseMessage, setResponseMessage] = useState(null);
   const { authenticated } = IsAuthenticated();
-  const { addToCart } = AddToCart();
+  const { addToCart, responseMessage } = AddToCart();
   const input = useRef();
   const [cartQty, setCartQty] = useState(1);
   const { productID } = useParams();
@@ -43,7 +41,7 @@ const ProductDetails = () => {
     if (authenticated) {
       addToCart(product.productID, cartQty);
     } else {
-      setResponseMessage(<Alert severity="warning">You need to be logged in!</Alert>)
+      alert("You need to be logged in!");
     }
   };
 
@@ -61,6 +59,8 @@ const ProductDetails = () => {
         <h2>{product.productName}</h2>
         <p>
           Description:
+          <br></br>
+          <br></br>
           {product.description}
         </p>
         <div className="price-and-buttons">
@@ -90,7 +90,9 @@ const ProductDetails = () => {
             <button onClick={addQty}>+</button>
           </div>
         </div>
-        <button id="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
+        <button id="add-to-cart-button" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
         {responseMessage}
       </div>
     </div>

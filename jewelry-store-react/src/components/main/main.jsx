@@ -47,7 +47,7 @@ const Main = () => {
         <br />
         <br />
         <br />
-        <h1 id="popular-products-text">Popular Products</h1>
+        <h1 id="latest-products-text" style={{ fontStyle: "italic" }}>Latest Products</h1>
 
         <br />
         <div className="slide">
@@ -79,13 +79,13 @@ const Main = () => {
         </div>
 
         <div className="about-us-text">
-          <h2>About Us</h2>
-          <p style={{textAlign: 'justify'}}>
-    Welcome to Sparkly, where fine craftsmanship meets timeless elegance. Created with a passion for luxury and a commitment to impeccable quality, we offer a curated selection of fine jewelry to adorn the most precious moments of your life. From dazzling diamonds to radiant gemstones, each piece in our collection is meticulously crafted to capture the essence of sophistication and beauty.
-  </p>
-  <p style={{textAlign: 'justify'}}>
-    At Sparkly, we understand that jewelry is more than just an accessory, it is an expression of style and feeling. Whether you аre celebrating a milestone or just indulging in a touch of luxury, our expertly curated designs suit every taste and occasion. With a commitment to authenticity and integrity, we invite you to browse our unparalleled selection and experience the epitome of Sparkly elegance.
-  </p>
+          <h2 style={{fontStyle: "italic"}}> About Us</h2>
+          <p style={{ textAlign: 'justify' , fontStyle: "italic"}}>
+            Welcome to Sparkly, where fine craftsmanship meets timeless elegance. Created with a passion for luxury and a commitment to impeccable quality, we offer a curated selection of fine jewelry to adorn the most precious moments of your life. From dazzling diamonds to radiant gemstones, each piece in our collection is meticulously crafted to capture the essence of sophistication and beauty.
+          </p>
+          <p style={{ textAlign: 'justify' , fontStyle: "italic" }}>
+            At Sparkly, we understand that jewelry is more than just an accessory, it is an expression of style and feeling. Whether you are celebrating a milestone or just indulging in a touch of luxury, our expertly curated designs suit every taste and occasion. With a commitment to authenticity and integrity, we invite you to browse our unparalleled selection and experience the epitome of Sparkly elegance.
+          </p>
         </div>
       </div>
     </main>
