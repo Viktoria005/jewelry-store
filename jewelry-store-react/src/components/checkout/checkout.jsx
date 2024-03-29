@@ -148,54 +148,63 @@ const Checkout = () => {
             </div>
           </div>
           <form className="form-container" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="first-name">First Name</label>
-              <input
-                type="text"
-                id="first-name"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleFormChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="last-name">Last Name</label>
-              <input
-                type="text"
-                id="last-name"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleFormChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="phone-number">Phone Number</label>
-              <input
-                type="text"
-                id="phone-number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleFormChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="address">Address</label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleFormChange}
-                required
-              />
-            </div>
-          </form>
+  <div className="form-group">
+    <label htmlFor="first-name">First Name</label>
+    <input
+      type="text"
+      id="first-name"
+      name="firstName"
+      value={formData.firstName}
+      onChange={handleFormChange}
+      required
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="last-name">Last Name</label>
+    <input
+      type="text"
+      id="last-name"
+      name="lastName"
+      value={formData.lastName}
+      onChange={handleFormChange}
+      required
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="phone-number">Phone Number</label>
+    <input
+      type="text"
+      id="phone-number"
+      name="phoneNumber"
+      value={formData.phoneNumber}
+      onChange={handleFormChange}
+      required
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="address">Address</label>
+    <input
+      type="text"
+      id="address"
+      name="address"
+      value={formData.address}
+      onChange={handleFormChange}
+      required
+    />
+  </div>
+  <div className="checkout-buttons">
+    <button type="submit" className="purchase">
+      Purchase
+    </button>
+    <Link className="back-to-cart-link" to="/cart">
+      <button className="back-to-cart-button">Back to Cart</button>
+    </Link>
+  </div>
+</form>
+
         </div>
       )}
-      {!purchaseSuccess && (
+      {/* {!purchaseSuccess && (
         <div className="checkout-buttons">
           <button type="submit" className="purchase" onClick={handleSubmit}>
             Purchase
@@ -204,7 +213,7 @@ const Checkout = () => {
             <button className="back-to-cart-button">Back to Cart</button>
           </Link>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

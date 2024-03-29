@@ -21,11 +21,7 @@ const FetchCartItems = () => {
       });
   };
 
-  const refetchCart = () => {
-    fetchCartItems();
-  };
-
-  return { cartProducts, refetchCart };
+  return { cartProducts, fetchCartItems };
 };
 
 export default FetchCartItems;

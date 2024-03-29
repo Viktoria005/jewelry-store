@@ -10,6 +10,7 @@ import Signup from "./components/singup/signup";
 import AddProduct from "./components/add-product/add-product";
 import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
+import Order from "./components/order/order";
 
 
 import {
@@ -34,6 +35,8 @@ const App = () => {
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order" element={<Order />} />
+
           
         </Routes>
       </Router>

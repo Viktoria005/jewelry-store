@@ -36,6 +36,9 @@ const Header = () => {
                 <a href="/cart">Shopping Cart</a>
               </li>
               <li>
+                < a href="/order"> Orders </a>
+              </li>
+              <li>
                 <a href="/" className="logout-button" onClick={logout}>
                   Logout
                 </a>
