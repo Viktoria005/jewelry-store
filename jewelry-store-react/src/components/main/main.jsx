@@ -54,7 +54,7 @@ const Main = () => {
           {products.slice(startIndex, startIndex + 3).map((product) => (
             <div key={product.productID}>
               <Link to={`/products/${product.productID}`}>
-                <img src={product.imageUrl} alt={product.productName} />
+                <img className="product_img" src={product.imageUrl} alt={product.productName} />
                 <h3 style={{ color: "#b6d0e2" }}>{product.productName}</h3>
               </Link>
               <p>Price: ${product.price}</p>

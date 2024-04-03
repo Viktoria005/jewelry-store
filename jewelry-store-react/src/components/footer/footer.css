@@ -1,3 +1,4 @@
+/* Default styles */
 footer {
   background-color: #38457c;
   padding: 20px;
@@ -6,7 +7,7 @@ footer {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* For smaller screens, stack map and social container vertically */
   align-items: center;
 }
 
@@ -45,27 +46,19 @@ footer {
   color: #ff5500;
 }
 
-.facebook-f {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhqhCE1ZItBk2eXdpda7hUVibZjDbg_iVhUzQ1_xvmjQ&s");
-}
+/* Responsive adjustments */
+@media screen and (min-width: 768px) {
+  .footer-content {
+    flex-direction: row; /* Display map and social container side by side on larger screens */
+    justify-content: space-between; /* Space out map and social container */
+    align-items: center;
+  }
 
-.tiktok::before {
-  content: "\f099";
-}
+  .map-container {
+    width: 50%;
+  }
 
-.instagram::before {
-  content: "\f16d";
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-}
-
-.map-container {
-  width: 50%;
-}
-
-.social-container {
-  width: 45%;
+  .social-container {
+    width: 45%;
+  }
 }

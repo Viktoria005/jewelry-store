@@ -1,3 +1,55 @@
-#product-image-input {
-    padding: 0;
-}
+/* add-product.css */
+
+.add-product-form {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .left,
+  .right {
+    width: 100%; /* Initially, both sections take full width */
+  }
+  
+  .add-product {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button.add-product-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* Make button take full width */
+  }
+  
+  button.add-product-button:hover {
+    background-color: #45a049;
+  }
+  
+  @media screen and (min-width: 768px) {
+    /* Adjust layout for larger screens */
+    .left,
+    .right {
+      width: 45%; /* Both sections take half width on screens larger than 768px */
+    }
+  }
+  

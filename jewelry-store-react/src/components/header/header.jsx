@@ -13,7 +13,10 @@ const Header = () => {
   return (
     <header id="sparkly-header">
       <div id="sparkly-logo-container">
-        <img id="sparkly-logo" src={sparklyLogo} alt="sparkly" />
+        {/* Wrap the logo with an anchor tag */}
+        <a href="/home" id="sparkly-logo-btn">
+          <img id="sparkly-logo" src={sparklyLogo} alt="sparkly" />
+        </a>
       </div>
       <div className="nav-content">
         <ul className="nav-menu">
@@ -21,10 +24,15 @@ const Header = () => {
             <a href="/home">Home</a>
           </li>
           {authenticatedAdmin && (
-            <li>
-              <a href="/add-product" className="add-product-button">
-                Add Product
+            <li className="dropdown">
+              <a href="#" className="admin-button">
+                Admin
               </a>
+              <div className="dropdown-content">
+                <a href="/add-product">Add Product</a>
+                <a href="/remove-product">Remove Product</a>
+                <a href="/orders">Orders</a>
+              </div>
             </li>
           )}
           <li>
@@ -36,7 +44,7 @@ const Header = () => {
                 <a href="/cart">Shopping Cart</a>
               </li>
               <li>
-                < a href="/order"> Orders </a>
+                <a href="/order"> Orders </a>
               </li>
               <li>
                 <a href="/" className="logout-button" onClick={logout}>

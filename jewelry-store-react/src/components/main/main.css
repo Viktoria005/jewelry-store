@@ -16,6 +16,8 @@ body {
 }
 
 .slide div {
+  flex: 0; /* Set flex property to distribute space equally among product containers */
+  margin: 0 10px; /* Adjust margin as needed */
   background-color: #38457c;
   color: #b6d0e2;
   border-radius: 10px;
@@ -23,16 +25,17 @@ body {
 }
 
 .slide img {
-  width: 350px;
-  height: 350px;
+  width: 300px; /* Ensure images fill their container */
+  height: 300px; /* Set fixed height for product images */
   object-fit: cover;
 }
+
 
 .prev,
 .next {
   width: 40px;
   height: 40px;
-background-color: #38457c;
+  background-color: #38457c;
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -54,17 +57,13 @@ background-color: #38457c;
   right: 0;
 }
 
-
-
-
-
-
 .about-us-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 100px;
+  padding: 50px; /* Adjust padding */
   width: 80%;
+  margin: auto; /* Center container */
 }
 
 .about-us-text {
@@ -73,8 +72,8 @@ background-color: #38457c;
 }
 
 .about-us-image img {
-  width: 380px;
-  height: 380px;
+  width: 350px; /* Adjust image size */
+  height: 350px; /* Maintain aspect ratio */
 }
 
 .about-us-text::before {
@@ -97,9 +96,32 @@ background-color: #38457c;
 
 #latest-products-text {
   padding-left: 50px;
-  text-align:justify;
+  text-align: justify;
 }
 
-.p{
-  text-align:justify;
+.p {
+  text-align: justify;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .slide div {
+    width: 100%; /* Make product containers full width */
+    margin: 0 0 20px 0; /* Adjust margin for smaller screens */
+  }
+  
+  .about-us-container {
+    flex-direction: column; /* Change flex direction for smaller screens */
+    align-items: center; /* Center items */
+  }
+
+  .about-us-text {
+    width: 80%; /* Adjust text width for smaller screens */
+    text-align: center; /* Center text */
+  }
+
+  .about-us-image {
+    width: 80%; /* Adjust image width for smaller screens */
+    margin-bottom: 20px; 
+  }
 }
