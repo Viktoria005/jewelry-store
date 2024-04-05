@@ -1,9 +1,9 @@
 import React from "react";
-import FetchOrder from "../../api/get-order";
+import FetchAllOrders from "../../api/get-all-orders";
 
-const Order = () => {
-  const { orders } = FetchOrder();
-
+const AllOrders = () => {
+  const { orders } = FetchAllOrders();
+  
   return (
     <div className="order-page">
       <h2>Order history</h2>
@@ -32,4 +32,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default AllOrders;

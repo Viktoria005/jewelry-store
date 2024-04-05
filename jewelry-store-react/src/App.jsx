@@ -11,8 +11,7 @@ import AddProduct from "./components/add-product/add-product";
 import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
 import Order from "./components/order/order";
-
-
+import AllOrders from "./components/all-orders/all-orders";
 import {
   BrowserRouter as Router,
   Routes,
@@ -36,8 +35,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order" element={<Order />} />
-
-          
+          <Route path="/all-orders" element={<AllOrders />} />
         </Routes>
       </Router>
       <Footer />

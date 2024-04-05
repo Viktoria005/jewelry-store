@@ -25,13 +25,13 @@ const Header = () => {
           </li>
           {authenticatedAdmin && (
             <li className="dropdown">
-              <a href="#" className="admin-button">
+              <a className="admin-button">
                 Admin
               </a>
               <div className="dropdown-content">
                 <a href="/add-product">Add Product</a>
                 <a href="/remove-product">Remove Product</a>
-                <a href="/orders">Orders</a>
+                <a href="/all-orders">All Orders</a>
               </div>
             </li>
           )}

@@ -15,15 +15,20 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost/jewelry-store/jewelry-store-php/products.php")
+      .post("http://localhost/jewelry-store/jewelry-store-php/get_product_details.php", {
+        productID: productID
+      })
       .then((response) => {
-        console.log(response.data[productID - 1]);
-        setProduct(response.data[productID - 1]);
+        if (response.data.success) {
+          setProduct(response.data.product); // Set product details
+        } else {
+          console.error("Error fetching product:", response.data.message);
+        }
       })
       .catch((error) => {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching product:", error);
       });
-  }, []);
+  }, [productID]);  
 
   const addQty = () => {
     if (cartQty < product.stockQuantity) {
