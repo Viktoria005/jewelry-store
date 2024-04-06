@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import FetchCartItems from "../../api/get-cart-items";
+import Radio from "@mui/material/Radio";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 const Checkout = () => {
   const { cartProducts, refetchCart } = FetchCartItems();
@@ -57,8 +59,8 @@ const Checkout = () => {
           }
         );
         console.log(response.data);
-        await clearCartItems(); // Clear cart items after successful purchase
-        setPurchaseSuccess(true); // Indicate purchase success
+        await clearCartItems();
+        setPurchaseSuccess(true);
       } else {
         console.error("Please fill in all the fields.");
       }
@@ -73,13 +75,12 @@ const Checkout = () => {
         "http://localhost/jewelry-store/jewelry-store-php/clear_cart.php",
         { userID }
       );
-      refetchCart(); // Refetch cart items after clearing
+      refetchCart();
     } catch (error) {
       console.error("Error clearing cart items:", error);
     }
   };
 
-  // Calculate total price only if cartProducts is an array
   const totalPrice = Array.isArray(cartProducts)
     ? cartProducts.reduce(
         (total, cartProduct) =>
@@ -90,16 +91,20 @@ const Checkout = () => {
 
   return (
     <div className="checkout-container">
-      <h2 className="purchaseSuccess">{purchaseSuccess ? "Thank You for Your Purchase!" : "Checkout"}</h2>
+      <h2 className="purchaseSuccess">
+        {purchaseSuccess ? "Thank You for Your Purchase!" : "Checkout"}
+      </h2>
       {purchaseSuccess ? (
         <div className="checkout-success">
           <p>Your order has been successfully placed.</p>
-          <div className="checkout-buttons">
+          <div className="order-success-buttons">
             <Link to="/home">
-              <button className="home-button">Go to Home </button>
+              <button className="go-home-button">Go to Home</button>
             </Link>
             <Link to="/order">
-            <button className="continue-shopping-button">View your Order</button>
+              <button className="view-your-order-button">
+                View your Order
+              </button>
             </Link>
           </div>
         </div>
@@ -157,7 +162,7 @@ const Checkout = () => {
               </table>
             </div>
           </div>
-          <form className="form-container" onSubmit={handleSubmit}>
+          <form className="checkout-form-container" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="first-name">First Name</label>
               <input
@@ -203,6 +208,20 @@ const Checkout = () => {
               />
             </div>
             <div className="checkout-buttons">
+              <FormControlLabel
+                value="Cash"
+                control={<Radio />}
+                label="Cash"
+                onChange={() =>
+                  setFormData((prevData) => ({
+                    ...prevData,
+                    paymentMethod: "Cash",
+                  }))
+                }
+                checked={formData.paymentMethod === "Cash"}
+                required
+              />
+
               <button type="submit" className="purchase">
                 Purchase
               </button>
@@ -213,16 +232,6 @@ const Checkout = () => {
           </form>
         </div>
       )}
-      {/* {!purchaseSuccess && (
-        <div className="checkout-buttons">
-          <button type="submit" className="purchase" onClick={handleSubmit}>
-            Purchase
-          </button>
-          <Link className="back-to-cart-link" to="/cart">
-            <button className="back-to-cart-button">Back to Cart</button>
-          </Link>
-        </div>
-      )} */}
     </div>
   );
 };

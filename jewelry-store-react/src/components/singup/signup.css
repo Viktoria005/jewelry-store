@@ -110,7 +110,9 @@ input {
   cursor: pointer;
   align-self: center;
 }
-
+.submit-button.submit-button:hover{
+  background-color: rgba(56, 69, 224, 0.8);
+}
 .log-in-link {
   text-align: center;
   margin-top: -5px;

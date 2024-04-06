@@ -7,7 +7,6 @@ const RemoveCartItem = () => {
         `http://localhost/jewelry-store/jewelry-store-php/remove_cart_item.php?productID=${productID}&cartID=${cartID}`
       )
       .then(() => {
-        // After successful removal, fetch updated cart items
         fetchCartItems();
       })
       .catch((error) => {

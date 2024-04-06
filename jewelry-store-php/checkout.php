@@ -10,19 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $lastName = $requestData["lastName"];
     $phoneNumber = $requestData["phoneNumber"];
     $address = $requestData["address"];
-    $productIDs = json_encode($requestData["productIDs"]); // Convert to JSON string
-    $quantities = json_encode($requestData["quantities"]); // Convert to JSON string
+    $productIDs = json_encode($requestData["productIDs"]); 
+    $quantities = json_encode($requestData["quantities"]); 
     $totalPrice = $requestData['totalPrice'];
+    $paymentMethod = $requestData['paymentMethod'];
 
-    // Prepare and bind SQL statement to insert into orders table
-    $sql = "INSERT INTO orders (userID, productIDs, quantities, firstName, lastName, phoneNumber, address, totalPrice) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO orders (userID, productIDs, quantities, firstName, lastName, phoneNumber, address, totalPrice, paymentMethod) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("issssisd", $userID, $productIDs, $quantities, $firstName, $lastName, $phoneNumber, $address, $totalPrice);
+    $stmt->bind_param("issssisds", $userID, $productIDs, $quantities, $firstName, $lastName, $phoneNumber, $address, $totalPrice, $paymentMethod);
     
-    // Execute the statement
     $stmt->execute();
 
-    // Check if the insertion was successful
     if ($stmt->affected_rows > 0) {
         echo "Order placed successfully!";
     } else {

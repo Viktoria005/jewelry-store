@@ -18,8 +18,8 @@ const AddToCart = () => {
         );
 
         setTimeout(() => {
-          setResponseMessage(null); // Hide the alert message after 2 seconds
-        }, 2000); // Timer set to 2 seconds (2000 milliseconds)
+          setResponseMessage(null); 
+        }, 2000); 
       })
 
       .catch((error) => {

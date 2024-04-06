@@ -1,6 +1,6 @@
 import "./cart.css";
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link
+import { Link } from "react-router-dom";
 import FetchCartItems from "../../api/get-cart-items";
 import RemoveCartItem from "../../api/remove-cart-item";
 import { CiCircleRemove } from "react-icons/ci";

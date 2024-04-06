@@ -70,26 +70,21 @@ const SignupData = () => {
         }
       );
 
-      // Handle the response here
       if (response.status === 200) {
         const data = response.data;
         if (data.success) {
-          // Handle successful registration
           window.location.href = "/login";
         } else {
-          // Handle registration error
           setResponseMessage(
             <div className="response-message">Error creating user</div>
           );
         }
       } else {
-        // Handle non-200 status code
         setResponseMessage(
           <div className="response-message">Server error</div>
         );
       }
     } catch (error) {
-      // Handle network error or any other Axios error
       setResponseMessage(<div className="response-message">Network error</div>);
     }
   };

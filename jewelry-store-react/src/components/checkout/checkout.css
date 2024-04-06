@@ -1,3 +1,45 @@
+.checkout-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.order-sucsess-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.go-home-button,
+.view-your-order-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.go-home-button {
+  background-color: #38457c;
+  color: white;
+  margin-right: 10px;
+}
+
+.go-home-button:hover {
+  background-color: rgba(56, 69, 224, 0.8);
+}
+
+.view-your-order-button {
+  background-color: #38457c;
+  color: white;
+}
+
+.view-your-order-button:hover {
+  background-color: rgba(56, 69, 224, 0.8);
+}
+
 .checkout-container {
   padding: 20px;
   min-height: 40vh !important;
@@ -5,23 +47,17 @@
 
 .checkout-content {
   display: flex;
-  flex-direction: column; /* For smaller screens, stack cart and form vertically */
+  flex-direction: column;
 }
 
 .cart-container {
   flex: 1;
-  margin-bottom: 20px; /* Add margin at the bottom for better separation */
+  margin-bottom: 20px;
 }
 
-.form-container {
+.checkout-form-container {
   flex: 1;
-  margin-left: 0; /* Remove margin on smaller screens */
-}
-
-.checkout-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end; /* Align buttons to the right */
+  margin-left: 0;
 }
 
 .purchase {
@@ -32,6 +68,7 @@
   cursor: pointer;
   border-radius: 5px;
   margin-right: 10px;
+  height: 40px;
 }
 
 .purchase:hover {
@@ -45,6 +82,8 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  margin-right: 10px;
+  height: 40px;
 }
 
 .back-to-cart-button:hover {
@@ -55,7 +94,7 @@
 .checkout-success {
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 20px; /* Add margin at the bottom */
+  margin-bottom: 20px;
 }
 
 .checkout-success p {
@@ -63,54 +102,16 @@
   margin-bottom: 10px;
 }
 
-.checkout-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Align buttons in the center horizontally */
-  margin-top: 20px;
-  margin-bottom: 20px; /* Add margin at the bottom */
-}
-
-.home-button,
-.continue-shopping-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.home-button {
-  background-color: #38457c;
-  color: white;
-  margin-right: 10px; /* Add margin between buttons */
-}
-
-.home-button:hover {
-  background-color: rgba(56, 69, 224, 0.8);
-}
-
-.continue-shopping-button {
-  background-color: #38457c;
-  color: white;
-}
-
-.continue-shopping-button:hover {
-  background-color: rgba(56, 69, 224, 0.8);
-}
-
-/* Responsive adjustments */
 @media screen and (min-width: 768px) {
   .checkout-content {
-    flex-direction: row; /* Display cart and form side by side on larger screens */
+    flex-direction: row;
   }
 
-  .form-container {
-    margin-left: 20px; /* Add margin between cart and form */
+  .checkout-form-container {
+    margin-left: 20px;
   }
 
   .checkout-buttons {
-    justify-content: flex-end; /* Align buttons to the right */
+    justify-content: flex-end;
   }
 }

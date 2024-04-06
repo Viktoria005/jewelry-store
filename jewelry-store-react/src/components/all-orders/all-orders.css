@@ -1,0 +1,39 @@
+.order-page {
+  padding: 20px;
+  min-height: 60vh !important;
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: left;
+}
+
+.order-table th {
+  background-color: #f2f2f2;
+}
+
+.product-image {
+  max-width: 40px; 
+}
+
+@media screen and (max-width: 968px) {
+  .order-table th,
+  .order-table td {
+    padding: 4px; 
+  }
+  
+  .product-image {
+    max-width: 30px; 
+  }
+  
+  .order-table {
+    font-size: 12px; 
+  }
+}

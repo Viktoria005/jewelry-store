@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './add-product.css';
+import "./add-product.css";
+import Alert from "@mui/material/Alert";
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -10,14 +11,24 @@ const AddProduct = () => {
     price: "",
     imageUrl: "",
     stockQuantity: "",
-    material: ""
+    material: "",
   });
+
+  const [responseMessage, setResponseMessage] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (
+      (name === "stockQuantity" || name === "price") &&
+      parseFloat(value) < 0
+    ) {
+      return;
+    }
+
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -36,110 +47,155 @@ const AddProduct = () => {
       );
 
       if (response.status === 200) {
-        // Handle successful product addition
-        console.log("Product added successfully");
+        setResponseMessage(
+          <Alert severity="success">Product added successfully</Alert>
+        );
+        setFormData({
+          categoryID: "",
+          productName: "",
+          description: "",
+          price: "",
+          imageUrl: "",
+          stockQuantity: "",
+          material: "",
+        });
+
+        setTimeout(() => {
+          setResponseMessage(null);
+        }, 2000);
       } else {
-        // Handle product addition error
         console.error("Error adding product");
       }
     } catch (error) {
-      // Handle network error or any other Axios error
       console.error("Network error", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="add-product-form">
+    <div>
+      {responseMessage}
+      <form onSubmit={handleSubmit} className="add-product-form">
+        <h2 className="title"> Add product</h2>
+        <div className="form-container">
+          <div className="left">
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="category-id">
+                Category ID
+              </label>
+              <select
+                className="add-product-select"
+                name="categoryID"
+                value={formData.categoryID}
+                onChange={handleChange}
+                id="categoryID"
+                required
+              >
+                <option value=""></option>
+                <option value="1">Rings</option>
+                <option value="2">Earrings</option>
+                <option value="3">Necklaces</option>
+                <option value="4">Bracelets</option>
+              </select>
+            </div>
 
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="product-name">
+                Product Name
+              </label>
+              <input
+                className="add-product-input"
+                type="text"
+                name="productName"
+                value={formData.productName}
+                onChange={handleChange}
+                id="product-name"
+                required
+              />
+            </div>
 
-      <div className="left">
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="description">
+                Description
+              </label>
+              <textarea
+                className="add-product-input"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                id="description"
+                required
+              />
+            </div>
 
-      <div className="add-product">
-        <label htmlFor="category-id">Category ID</label>
-        <input
-          type="text"
-          name="categoryID"
-          value={formData.categoryID}
-          onChange={handleChange}
-          id="category-id"
-          required
-        />
-      </div>
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="price">
+                Price
+              </label>
+              <input
+                className="add-product-input"
+                type="number"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+                id="price"
+                required
+              />
+            </div>
+          </div>
+          <div className="right">
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="image-url">
+                Image URL
+              </label>
+              <input
+                className="add-product-input"
+                type="text"
+                name="imageUrl"
+                value={formData.imageUrl}
+                onChange={handleChange}
+                id="image-url"
+                required
+              />
+            </div>
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="stock-quantity">
+                Stock Quantity
+              </label>
+              <input
+                className="add-product-input"
+                type="number"
+                name="stockQuantity"
+                value={formData.stockQuantity}
+                onChange={handleChange}
+                id="stock-quantity"
+                required
+              />
+            </div>
 
-      <div className="add-product">
-        <label htmlFor="product-name">Product Name</label>
-        <input
-          type="text"
-          name="productName"
-          value={formData.productName}
-          onChange={handleChange}
-          id="product-name"
-          required
-        />
-      </div>
-
-      <div className="add-product">
-        <label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          id="description"
-          required
-        />
-      </div>
-
-      <div className="add-product">
-        <label htmlFor="price">Price</label>
-        <input
-          type="number"
-          name="price"
-          value={formData.price}
-          onChange={handleChange}
-          id="price"
-          required
-        />
-      </div>
-      </div>
-      <div className="right">
-      <div className="add-product">
-        <label htmlFor="image-url">Image URL</label>
-        <input
-          type="text"
-          name="imageUrl"
-          value={formData.imageUrl}
-          onChange={handleChange}
-          id="image-url"
-          required
-        />
-      </div>
-      <div className="add-product">
-        <label htmlFor="stock-quantity">Stock Quantity</label>
-        <input
-          type="number"
-          name="stockQuantity"
-          value={formData.stockQuantity}
-          onChange={handleChange}
-          id="stock-quantity"
-          required
-        />
-      </div>
-      <div className="add-product">
-        <label htmlFor="material">Material</label>
-        <input
-          type="text"
-          name="material"
-          value={formData.material}
-          onChange={handleChange}
-          id="material"
-          required
-        />
-      </div>
-      <button className="add-product-button" type="submit">
-        Add Product
-      </button>
-      </div>
-    </form>
+            <div className="add-product">
+              <label className="add-product-label" htmlFor="material">
+                Material
+              </label>
+              <select
+                className="add-product-select"
+                name="material"
+                value={formData.material}
+                onChange={handleChange}
+                id="material"
+                required
+              >
+                <option value=""></option>
+                <option value="Gold">Gold</option>
+                <option value="Silver">Silver</option>
+              </select>
+            </div>
+            <button className="add-product-button" type="submit">
+              Add Product
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   );
 };
 

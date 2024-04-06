@@ -1,4 +1,3 @@
-/* Default styles */
 footer {
   background-color: #38457c;
   padding: 20px;
@@ -7,7 +6,7 @@ footer {
 
 .footer-content {
   display: flex;
-  flex-direction: column; /* For smaller screens, stack map and social container vertically */
+  flex-direction: column;
   align-items: center;
 }
 
@@ -46,11 +45,10 @@ footer {
   color: #ff5500;
 }
 
-/* Responsive adjustments */
 @media screen and (min-width: 768px) {
   .footer-content {
-    flex-direction: row; /* Display map and social container side by side on larger screens */
-    justify-content: space-between; /* Space out map and social container */
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   }
 

@@ -1,0 +1,52 @@
+.order-page{
+    min-height: 60vh !important;
+}/* order.css */
+
+.order-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .order-container {
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  .product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  
+  /* Add lines between td elements */
+  td {
+    border-right: 1px solid #ddd;
+  }
+  
+  /* Ensure the last td in each row doesn't have a border */
+  td:last-child {
+    border-right: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 968px) {
+    th, td {
+      font-size: 14px;
+      padding: 4px;
+    }
+  }
+  

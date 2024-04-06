@@ -1,4 +1,3 @@
-// product-filter.js
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -12,14 +11,12 @@ const ProductFilter = () => {
     gold: false,
     silver: false,
   });
-  const [selectedPrice, setSelectedPrice] = useState(""); // Initialize with an empty string or any default value
+  const [selectedPrice, setSelectedPrice] = useState("");
 
   useEffect(() => {
     const sendFiltersToServer = async () => {
       try {
         const params = {};
-
-        // Check for selected type, material, and price
         const selectedType = Object.keys(selectedFilters).find(
           (key) => key !== "gold" && key !== "silver" && selectedFilters[key]
         );
@@ -48,7 +45,6 @@ const ProductFilter = () => {
     const { name, checked } = event.target;
     setSelectedFilters((prevFilters) => {
       if ((name === "gold" || name === "silver") && checked) {
-        // If material checkbox is checked, uncheck other material checkboxes
         const newFilters = { ...prevFilters };
         Object.keys(prevFilters)
           .filter((key) => key === "gold" || key === "silver")
@@ -59,7 +55,6 @@ const ProductFilter = () => {
           });
         return { ...newFilters, [name]: checked };
       } else if (checked) {
-        // If a product type checkbox is checked, uncheck other product type checkboxes
         const newFilters = { ...prevFilters };
         Object.keys(prevFilters)
           .filter((key) => key !== "gold" && key !== "silver")

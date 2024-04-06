@@ -8,7 +8,6 @@ $userID = $requestData['userID'];
 $productID = $requestData['productID'];
 $productQuantity = $requestData['cartQty'];
 
-// Check if the product already exists in the cart
 $query = "SELECT cartID, productQuantity FROM cart_items WHERE cartID IN (SELECT cartID FROM cart WHERE userID = $userID) AND productID = $productID";
 $result = $conn->query($query);
 
@@ -17,14 +16,12 @@ if ($result->num_rows > 0) {
     $cartID = $row['cartID'];
     $existingQuantity = $row['productQuantity'];
 
-    // Update the product quantity in the cart
     $newQuantity = $existingQuantity + $productQuantity;
     $updateSql = "UPDATE cart_items SET productQuantity = $newQuantity WHERE cartID = $cartID AND productID = $productID";
 
     if ($conn->query($updateSql) === TRUE) {
         echo "Product quantity updated in cart $cartID";
 
-        // Update the stock quantity of the product in the products table
         $updateStockSql = "UPDATE products SET stockQuantity = stockQuantity - $productQuantity WHERE productID = $productID";
         if ($conn->query($updateStockSql) !== TRUE) {
             echo "Error updating product stock quantity: " . $conn->error;
@@ -33,7 +30,6 @@ if ($result->num_rows > 0) {
         echo "Error updating cart: " . $conn->error;
     }
 } else {
-    // Add the product to the cart
     $cartQuery = "SELECT cartID FROM cart WHERE userID = $userID";
     $cartResult = $conn->query($cartQuery);
 
@@ -46,7 +42,6 @@ if ($result->num_rows > 0) {
         if ($conn->query($insertSql) === TRUE) {
             echo "Product added to cart $cartID";
 
-            // Update the stock quantity of the product in the products table
             $updateStockSql = "UPDATE products SET stockQuantity = stockQuantity - $productQuantity WHERE productID = $productID";
             if ($conn->query($updateStockSql) !== TRUE) {
                 echo "Error updating product stock quantity: " . $conn->error;

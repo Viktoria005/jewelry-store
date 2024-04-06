@@ -22,7 +22,6 @@ if ($result->num_rows > 0) {
     $cartProducts = array();
 
     while ($row = $result->fetch_assoc()) {
-      // Add cartID to each item in cartProducts
       $row['cartID'] = $cartID;
       $cartProducts[] = $row;
     }

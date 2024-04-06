@@ -13,7 +13,6 @@ const Header = () => {
   return (
     <header id="sparkly-header">
       <div id="sparkly-logo-container">
-        {/* Wrap the logo with an anchor tag */}
         <a href="/home" id="sparkly-logo-btn">
           <img id="sparkly-logo" src={sparklyLogo} alt="sparkly" />
         </a>
@@ -30,6 +29,7 @@ const Header = () => {
               </a>
               <div className="dropdown-content">
                 <a href="/add-product">Add Product</a>
+                <a href="/update-product">Update Product</a>
                 <a href="/remove-product">Remove Product</a>
                 <a href="/all-orders">All Orders</a>
               </div>

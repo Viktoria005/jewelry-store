@@ -34,10 +34,18 @@ const Footer = () => {
             >
               <i className="bi bi-facebook"></i>
             </a>
-            <a href="https://www.tiktok.com/@vickyyyy.kk" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.tiktok.com/@vickyyyy.kk"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i className="bi bi-tiktok"></i>
             </a>
-            <a href="https://www.instagram.com/vickyyy.kk/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/vickyyy.kk/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i className="fab fa-instagram"></i>
             </a>
           </div>
