@@ -22,6 +22,7 @@ const LoginForm = () => {
           <div className="form-group">
             <label className="log-in-label" htmlFor="username">Username</label>
             <input className="log-in-input"
+              id="username"
               type="text"
               name="username"
               onChange={handleChange}

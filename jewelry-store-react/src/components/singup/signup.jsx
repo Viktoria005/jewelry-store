@@ -72,6 +72,7 @@ const Signup = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
+                id="password"
                 value={formData.password}
                 onChange={handleChange}
                 className="password-field"
@@ -94,6 +95,7 @@ const Signup = () => {
               <div className="password-group">
                 <input
                   type={showPassword ? "text" : "password"}
+                  id="confirm-password"
                   name="pwd"
                   value={formData.pwd}
                   onChange={handleChange}

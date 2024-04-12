@@ -46,7 +46,6 @@ body {
   background-color: #38457c;
   border: none;
   border-radius: 10px;
-  padding: 10px;
   cursor: pointer;
   text-decoration: none;
 }
@@ -93,7 +92,7 @@ body {
 }
 
 /* Responsive adjustments */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   #sparkly-logo-container {
     justify-content: center; /* Center the logo container horizontally */
   }

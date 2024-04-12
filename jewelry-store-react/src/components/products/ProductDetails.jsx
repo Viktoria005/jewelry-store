@@ -4,10 +4,14 @@ import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import IsAuthenticated from "../../api/is-athenticated";
 import AddToCart from "../../api/add-to-cart";
+import DeleteProduct from "../../api/delete-product";
 
 const ProductDetails = () => {
   const { authenticated } = IsAuthenticated();
   const { addToCart, responseMessage } = AddToCart();
+  const { deleteProduct } = DeleteProduct();
+  const profileType = sessionStorage.getItem("profileType");
+
   const input = useRef();
   const [cartQty, setCartQty] = useState(1);
   const { productID } = useParams();
@@ -15,9 +19,12 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost/jewelry-store/jewelry-store-php/get_product_details.php", {
-        productID: productID
-      })
+      .post(
+        "http://localhost/jewelry-store/jewelry-store-php/get_product_details.php",
+        {
+          productID: productID,
+        }
+      )
       .then((response) => {
         if (response.data.success) {
           setProduct(response.data.product); // Set product details
@@ -28,7 +35,7 @@ const ProductDetails = () => {
       .catch((error) => {
         console.error("Error fetching product:", error);
       });
-  }, [productID]);  
+  }, [productID]);
 
   const addQty = () => {
     if (cartQty < product.stockQuantity) {
@@ -98,6 +105,16 @@ const ProductDetails = () => {
         <button id="add-to-cart-button" onClick={handleAddToCart}>
           Add to Cart
         </button>
+        {profileType === "admin" && (
+          <button
+            type="button"
+            onClick={() => {
+              deleteProduct();
+            }}
+          >
+            Delete
+          </button>
+        )}
         {responseMessage}
       </div>
     </div>

@@ -7,7 +7,7 @@ import Radio from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 const Checkout = () => {
-  const { cartProducts, refetchCart } = FetchCartItems();
+  const { cartProducts, fetchCartItems } = FetchCartItems();
   const userID = sessionStorage.getItem("userID");
   const [formData, setFormData] = useState({
     firstName: "",
@@ -75,7 +75,7 @@ const Checkout = () => {
         "http://localhost/jewelry-store/jewelry-store-php/clear_cart.php",
         { userID }
       );
-      refetchCart();
+      fetchCartItems();
     } catch (error) {
       console.error("Error clearing cart items:", error);
     }
