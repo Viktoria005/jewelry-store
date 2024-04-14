@@ -29,8 +29,6 @@ const Header = () => {
               </a>
               <div className="dropdown-content">
                 <a href="/add-product">Add Product</a>
-                <a href="/update-product">Update Product</a>
-                <a href="/remove-product">Remove Product</a>
                 <a href="/all-orders">All Orders</a>
               </div>
             </li>
@@ -44,7 +42,7 @@ const Header = () => {
                 <a href="/cart">Shopping Cart</a>
               </li>
               <li>
-                <a href="/order"> Orders </a>
+                <a href="/order"> My Orders </a>
               </li>
               <li>
                 <a href="/" className="logout-button" onClick={logout}>
