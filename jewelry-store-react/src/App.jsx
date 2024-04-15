@@ -12,6 +12,7 @@ import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
 import Order from "./components/order/order";
 import AllOrders from "./components/all-orders/all-orders";
+import EditProduct from "./components/edit-products/EditProduct"
 import {
   BrowserRouter as Router,
   Routes,
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order" element={<Order />} />
           <Route path="/all-orders" element={<AllOrders />} />
+          <Route path="/edit-products" element={<EditProduct/>} />
         </Routes>
       </Router>
       {isLoginOrSignup ? null : <Footer />}

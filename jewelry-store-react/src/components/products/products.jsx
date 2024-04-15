@@ -18,16 +18,35 @@ const Products = () => {
   } = ProductFilter();
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); 
+  };
+
+  const filteredProductsBySearch = searchQuery
+    ? filteredProducts.filter((product) =>
+        product.productName.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : filteredProducts;
 
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
-  const currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredProductsBySearch.slice(indexOfFirstItem, indexOfLastItem);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <main className="container">
       <div id="productfilter">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
         <h3>Product Filter</h3>
         <FormControlLabel
           control={
@@ -39,7 +58,7 @@ const Products = () => {
           }
           label="Show All products"
         />
-          <h4> Type product </h4>
+        <h4> Type product </h4>
         <FormGroup>
           <FormControlLabel
             control={
@@ -141,13 +160,16 @@ const Products = () => {
             <p>No products available for the selected category.</p>
           )}
         </ul>
-        {filteredProducts.length > ITEMS_PER_PAGE && (
+        {filteredProductsBySearch.length > ITEMS_PER_PAGE && (
           <ul className="pagination">
-            {Array.from({ length: Math.ceil(filteredProducts.length / ITEMS_PER_PAGE) }, (_, index) => (
-              <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
-                <button onClick={() => paginate(index + 1)} className="page-link">{index + 1}</button>
-              </li>
-            ))}
+            {Array.from(
+              { length: Math.ceil(filteredProductsBySearch.length / ITEMS_PER_PAGE) },
+              (_, index) => (
+                <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                  <button onClick={() => paginate(index + 1)} className="page-link">{index + 1}</button>
+                </li>
+              )
+            )}
           </ul>
         )}
       </div>

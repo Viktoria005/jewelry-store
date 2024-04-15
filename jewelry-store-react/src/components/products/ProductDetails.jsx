@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./ProductDetails.css";
 import IsAuthenticated from "../../api/is-athenticated";
 import AddToCart from "../../api/add-to-cart";
@@ -28,7 +28,7 @@ const ProductDetails = () => {
       )
       .then((response) => {
         if (response.data.success) {
-          setProduct(response.data.product); // Set product details
+          setProduct(response.data.product);
         } else {
           console.error("Error fetching product:", response.data.message);
         }
@@ -110,7 +110,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <div id="cart-buttons">
-          {product.stockQuantity !== 0 && ( // Render the button only if stockQuantity is not zero
+          {product.stockQuantity !== 0 && (
             <button id="add-to-cart-button" onClick={handleAddToCart}>
               Add to Cart
             </button>
@@ -127,9 +127,12 @@ const ProductDetails = () => {
               >
                 Delete
               </button>
-              <button id="update-product-button" type="button">
-                Update
-              </button>
+              <Link to={`/edit-products`}>
+              
+          <button id="edit-product-button" type="button">
+            Edit
+          </button>
+        </Link>
             </>
           )}
           {responseMessage}
