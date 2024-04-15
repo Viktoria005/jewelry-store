@@ -9,8 +9,28 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  margin-top: 35px;
-  
+  margin-top: 60px;
+}
+.signBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://e0.pxfuel.com/wallpapers/24/857/desktop-wallpaper-background-jewelry.jpg");
+  background-size: cover;
+  filter: blur(10px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.signBody {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
 #signup-form {
@@ -18,7 +38,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .signup-text {
@@ -111,7 +130,7 @@ input {
   cursor: pointer;
   align-self: center;
 }
-.submit-button.submit-button:hover{
+.submit-button.submit-button:hover {
   background-color: rgba(56, 69, 224, 0.8);
 }
 .log-in-link {

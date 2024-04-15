@@ -12,10 +12,17 @@ import Cart from "./components/cart/cart";
 import Checkout from "./components/checkout/checkout";
 import Order from "./components/order/order";
 import AllOrders from "./components/all-orders/all-orders";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 const App = () => {
-  const isLoginOrSignup = window.location.pathname === "/login" || window.location.pathname === "/signup";
+  const isLoginOrSignup =
+    window.location.pathname === "/login" ||
+    window.location.pathname === "/signup";
 
   return (
     <>
@@ -38,6 +45,6 @@ const App = () => {
       {isLoginOrSignup ? null : <Footer />}
     </>
   );
-}
+};
 
 export default App;

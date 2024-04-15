@@ -5,6 +5,7 @@ import "./ProductDetails.css";
 import IsAuthenticated from "../../api/is-athenticated";
 import AddToCart from "../../api/add-to-cart";
 import DeleteProduct from "../../api/delete-product";
+import { CiCircleRemove } from "react-icons/ci";
 
 const ProductDetails = () => {
   const { authenticated } = IsAuthenticated();
@@ -66,13 +67,19 @@ const ProductDetails = () => {
       <div className="product-image-container">
         <img src={product.imageUrl} alt={product.productName} />
       </div>
-
+  
       <div className="product-info-container">
         <h2>{product.productName}</h2>
+        {product.stockQuantity === 0 && (
+          <div className="unavailable-container">
+            <CiCircleRemove size="30px" />
+            <p className="unavailable-message">The item is currently unavailable.</p>
+          </div>
+        )}
+
         <p>
           Description:
-          <br></br>
-          <br></br>
+          <br /><br />
           {product.description}
         </p>
         <div className="price-and-buttons">
@@ -102,20 +109,31 @@ const ProductDetails = () => {
             <button onClick={addQty}>+</button>
           </div>
         </div>
-        <button id="add-to-cart-button" onClick={handleAddToCart}>
-          Add to Cart
-        </button>
-        {profileType === "admin" && (
-          <button
-            type="button"
-            onClick={() => {
-              deleteProduct();
-            }}
-          >
-            Delete
-          </button>
-        )}
-        {responseMessage}
+        <div id="cart-buttons">
+          {product.stockQuantity !== 0 && ( // Render the button only if stockQuantity is not zero
+            <button id="add-to-cart-button" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
+          )}
+
+          {profileType === "admin" && (
+            <>
+              <button
+                id="delete-product-button"
+                type="button"
+                onClick={() => {
+                  deleteProduct();
+                }}
+              >
+                Delete
+              </button>
+              <button id="update-product-button" type="button">
+                Update
+              </button>
+            </>
+          )}
+          {responseMessage}
+        </div>
       </div>
     </div>
   );

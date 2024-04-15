@@ -9,22 +9,39 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: 15px;
   max-width: 350px;
   margin: 0 auto;
-  margin-top: 55px;
+  margin-top: 80px;
   padding: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
 }
 
-/* background-image: url("https://e0.pxfuel.com/wallpapers/24/857/desktop-wallpaper-background-jewelry.jpg");
+.loginBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://e0.pxfuel.com/wallpapers/24/857/desktop-wallpaper-background-jewelry.jpg");
   background-size: cover;
-  background-position: center;
-   filter: blur(5px); */
+  filter: blur(10px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.loginBody {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
 
 .form-group {
   display: flex;
@@ -69,7 +86,7 @@
   background-color: #38457c;
   border: none;
   border-radius: 20px;
-  color:#b6d0e2;
+  color: #b6d0e2;
   cursor: pointer;
   align-self: center;
 }

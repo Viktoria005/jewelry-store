@@ -1,5 +1,5 @@
 import "./checkout.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import FetchCartItems from "../../api/get-cart-items";
@@ -17,12 +17,45 @@ const Checkout = () => {
   });
   const [purchaseSuccess, setPurchaseSuccess] = useState(false);
 
+  
+ 
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost/jewelry-store/jewelry-store-php/user-info.php?userID=${userID}`
+        );
+        const { firstName, lastName } = response.data;
+        setFormData((prevData) => ({
+          ...prevData,
+          firstName,
+          lastName,
+        }));
+      } catch (error) {
+        console.error("Error fetching user information:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [userID]);
+
+  
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    // Only allow numbers and limit to 10 digits
+    if (name === "phoneNumber") {
+      const formattedValue = value.replace(/\D/g, '').slice(0, 10);
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: formattedValue,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const isFormFilled = () => {
@@ -169,7 +202,8 @@ const Checkout = () => {
                 type="text"
                 id="first-name"
                 name="firstName"
-                value={formData.firstName}
+                
+                value={formData.firstName || ""}
                 onChange={handleFormChange}
                 required
               />
@@ -180,7 +214,7 @@ const Checkout = () => {
                 type="text"
                 id="last-name"
                 name="lastName"
-                value={formData.lastName}
+                value={formData.lastName || ""}
                 onChange={handleFormChange}
                 required
               />
@@ -194,6 +228,7 @@ const Checkout = () => {
                 value={formData.phoneNumber}
                 onChange={handleFormChange}
                 required
+                maxLength={10}
               />
             </div>
             <div className="form-group">

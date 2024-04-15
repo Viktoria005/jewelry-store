@@ -1,13 +1,13 @@
 import "./products.css";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import ProductFilter from "../../api/product-filter";
 
-
 const Products = () => {
+  const ITEMS_PER_PAGE = 5;
   const {
     filteredProducts,
     handleCheckboxChange,
@@ -16,6 +16,14 @@ const Products = () => {
     selectedFilters,
     selectedPrice,
   } = ProductFilter();
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const currentItems = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <main className="container">
@@ -31,7 +39,7 @@ const Products = () => {
           }
           label="Show All products"
         />
-        <h4> Type product </h4>
+          <h4> Type product </h4>
         <FormGroup>
           <FormControlLabel
             control={
@@ -106,19 +114,19 @@ const Products = () => {
         <h4> Price </h4>
 
         <FormControlLabel
-            control={<Radio checked={selectedPrice === "DescendingOrder"} onChange={handlePriceChange} value="DescendingOrder" />}
-            label="Descending order"
-          />
-          <FormControlLabel
-            control={<Radio checked={selectedPrice === "Ascending"} onChange={handlePriceChange} value="Ascending" />}
-            label="Ascending order"
-          />
+          control={<Radio checked={selectedPrice === "DescendingOrder"} onChange={handlePriceChange} value="DescendingOrder" />}
+          label="Descending order"
+        />
+        <FormControlLabel
+          control={<Radio checked={selectedPrice === "Ascending"} onChange={handlePriceChange} value="Ascending" />}
+          label="Ascending order"
+        />
       </div>
 
       <div id="type-product-container" className="products-container">
         <ul className="product-menu">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+          {currentItems.length > 0 ? (
+            currentItems.map((product) => (
               <li key={product.productID} className="product-item">
                 <div className="product-content">
                   <Link to={`/products/${product.productID}`}>
@@ -133,6 +141,15 @@ const Products = () => {
             <p>No products available for the selected category.</p>
           )}
         </ul>
+        {filteredProducts.length > ITEMS_PER_PAGE && (
+          <ul className="pagination">
+            {Array.from({ length: Math.ceil(filteredProducts.length / ITEMS_PER_PAGE) }, (_, index) => (
+              <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                <button onClick={() => paginate(index + 1)} className="page-link">{index + 1}</button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </main>
   );
