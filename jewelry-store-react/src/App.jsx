@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/order" element={<Order />} />
           <Route path="/all-orders" element={<AllOrders />} />
-          <Route path="/edit-products" element={<EditProduct/>} />
+          <Route path="/edit-products/:productID" element={<EditProduct/>} />
         </Routes>
       </Router>
       {isLoginOrSignup ? null : <Footer />}

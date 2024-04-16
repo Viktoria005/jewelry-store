@@ -67,19 +67,22 @@ const ProductDetails = () => {
       <div className="product-image-container">
         <img src={product.imageUrl} alt={product.productName} />
       </div>
-  
+
       <div className="product-info-container">
         <h2>{product.productName}</h2>
         {product.stockQuantity === 0 && (
           <div className="unavailable-container">
             <CiCircleRemove size="30px" />
-            <p className="unavailable-message">The item is currently unavailable.</p>
+            <p className="unavailable-message">
+              The item is currently unavailable.
+            </p>
           </div>
         )}
 
         <p>
           Description:
-          <br /><br />
+          <br />
+          <br />
           {product.description}
         </p>
         <div className="price-and-buttons">
@@ -127,12 +130,11 @@ const ProductDetails = () => {
               >
                 Delete
               </button>
-              <Link to={`/edit-products`}>
-              
-          <button id="edit-product-button" type="button">
-            Edit
-          </button>
-        </Link>
+              <Link to={`/edit-products/${productID}`}>
+                <button id="edit-product-button" type="button">
+                  Edit
+                </button>
+              </Link>
             </>
           )}
           {responseMessage}

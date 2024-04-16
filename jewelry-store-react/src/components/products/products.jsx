@@ -157,7 +157,7 @@ const Products = () => {
               </li>
             ))
           ) : (
-            <p>No products available for the selected category.</p>
+            <p>No products available. </p>
           )}
         </ul>
         {filteredProductsBySearch.length > ITEMS_PER_PAGE && (
