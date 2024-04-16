@@ -7,12 +7,16 @@ const ChangeOrderStatus = () => {
   const changeStatus = (orderID, currentStatus = null) => {
     if (currentStatus === null) {
       currentStatus = window.prompt(
-        "Are you sure you want to cancel your trip?"
+        "Enter the new status: Accepted, In Process,  Delivered):"
       );
       if (currentStatus === null) {
-        // User clicked cancel or closed the prompt
-        return Promise.reject("Action canceled by user");
+        console.log("Action canceled by user");
+        return;
       }
+    }
+    if (currentStatus.toLowerCase() === "canceled") {
+      console.log("Cannot change status. Order is already canceled.");
+      return Promise.reject("Order is already canceled");
     }
 
     return axios
@@ -28,8 +32,8 @@ const ChangeOrderStatus = () => {
         fetchAllOrders();
       })
       .catch((error) => {
-        console.error("Error cancelling trip:", error);
-        // Handle error
+        console.error("Error changing order status:", error);
+        
       });
   };
 

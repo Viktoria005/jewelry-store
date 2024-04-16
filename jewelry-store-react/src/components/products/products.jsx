@@ -7,7 +7,7 @@ import Radio from "@mui/material/Radio";
 import ProductFilter from "../../api/product-filter";
 
 const Products = () => {
-  const ITEMS_PER_PAGE = 5;
+  const ITEMS_PER_PAGE = 10;
   const {
     filteredProducts,
     handleCheckboxChange,

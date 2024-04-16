@@ -9,9 +9,30 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  min-height: 60vh !important;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.addProductBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://e0.pxfuel.com/wallpapers/24/857/desktop-wallpaper-background-jewelry.jpg");
+  background-size: cover;
+  filter: blur(10px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.addProductBody {
+  position: relative;
+  z-index: 1;
+  min-height: 61.1vh !important;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
 .title {
@@ -71,6 +92,6 @@
 
   .left,
   .right {
-    flex: 0 0 48%;
+    flex: 0 0 50%;
   }
 }

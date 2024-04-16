@@ -1,11 +1,33 @@
 .order-page {
   padding: 20px;
-  min-height: 60vh !important;
+  min-height: 62.1vh !important;
+}
+
+.allOrdersBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://e0.pxfuel.com/wallpapers/24/857/desktop-wallpaper-background-jewelry.jpg");
+  background-size: cover;
+  filter: blur(10px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.allOrdersBody {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
 }
 
 .order-table {
   width: 100%;
   border-collapse: collapse;
+  
 }
 
 .order-table th,
@@ -13,6 +35,7 @@
   border: 1px solid #ddd;
   padding: 6px;
   text-align: left;
+  
 }
 
 .order-table th {
@@ -20,20 +43,20 @@
 }
 
 .product-image {
-  max-width: 40px; 
+  max-width: 40px;
 }
 
 @media screen and (max-width: 968px) {
   .order-table th,
   .order-table td {
-    padding: 4px; 
+    padding: 4px;
   }
-  
+
   .product-image {
-    max-width: 30px; 
+    max-width: 30px;
   }
-  
+
   .order-table {
-    font-size: 12px; 
+    font-size: 12px;
   }
 }

@@ -257,6 +257,20 @@ const Checkout = () => {
                 required
               />
 
+<FormControlLabel
+                value="Card"
+                control={<Radio />}
+                label="Card"
+                onChange={() =>
+                  setFormData((prevData) => ({
+                    ...prevData,
+                    paymentMethod: "Card",
+                  }))
+                }
+                checked={formData.paymentMethod === "Card"}
+                required
+              />
+
               <button type="submit" className="purchase">
                 Purchase
               </button>

@@ -62,8 +62,13 @@ const Order = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      changeStatus(order.orderID, "Cancelled");
+                      if (order.currentStatus.toLowerCase() !== "cancelled") {
+                        changeStatus(order.orderID, "Cancelled");
+                      } else {
+                        console.log("Cannot cancel order. Order is already cancelled.");
+                      }
                     }}
+                    disabled={order.currentStatus.toLowerCase() === "cancelled"}
                   >
                     Cancel Order
                   </button>
