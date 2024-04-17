@@ -15,6 +15,13 @@
   -webkit-filter: blur(8px);
   z-index: -1;
 }
+.change-status-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
 
 .allOrdersBody {
   position: relative;
@@ -46,7 +53,7 @@
   max-width: 40px;
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 768px) {
   .order-table th,
   .order-table td {
     padding: 4px;

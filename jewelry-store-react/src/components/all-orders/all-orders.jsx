@@ -64,6 +64,7 @@ const AllOrders = () => {
                     <td>
                       <button
                         type="button"
+                        className="change-status-button"
                         onClick={() => {
                           if (order.currentStatus !== "Cancelled") {
                             changeStatus(order.orderID);

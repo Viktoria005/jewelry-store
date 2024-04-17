@@ -1,6 +1,6 @@
 .order-page{
-    min-height: 60vh !important;
-}/* order.css */
+    min-height: 62.1vh !important;
+}
 
 .order-page {
     font-family: Arial, sans-serif;
@@ -10,11 +10,40 @@
   .order-container {
     margin-bottom: 20px;
   }
+  .cancel-status-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
   
   table {
     width: 100%;
     border-collapse: collapse;
   }
+  .orderBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://e0.pxfuel.com/wallpapers/24/857/desktop-wallpaper-background-jewelry.jpg");
+    background-size: cover;
+    filter: blur(10px);
+    -webkit-filter: blur(8px);
+    z-index: -1;
+  }
+  
+  .orderBody {
+    position: relative;
+    z-index: 1;
+    min-height: 61.1vh !important;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+  
   
   th, td {
     padding: 8px;

@@ -8,6 +8,9 @@ const Order = () => {
   const { changeStatus } = ChangeOrderStatus();
 
   return (
+    <div>
+    <div className="orderBackground"></div>
+    <div className="orderBody">
     <div className="order-page">
       <h2>Order history</h2>
       {orders.length > 0 ? (
@@ -61,6 +64,7 @@ const Order = () => {
                 <td>
                   <button
                     type="button"
+                    className="cancel-status-button"
                     onClick={() => {
                       if (order.currentStatus.toLowerCase() !== "cancelled") {
                         changeStatus(order.orderID, "Cancelled");
@@ -80,6 +84,8 @@ const Order = () => {
       ) : (
         <p>No orders</p>
       )}
+      </div>
+    </div>
     </div>
   );
 };
