@@ -7,6 +7,8 @@
   padding-left: 120px;
   padding-right: 140px;
   padding-bottom: 100px;
+  
+  min-height: 47.5vh !important;
 }
 
 .product-image-container img {

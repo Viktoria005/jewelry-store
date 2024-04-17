@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $totalPrice = $requestData['totalPrice'];
     $paymentMethod = $requestData['paymentMethod'];
 
-    $sql = "INSERT INTO orders (userID, productIDs, quantities, firstName, lastName, phoneNumber, address, totalPrice, paymentMethod, currentStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'In Proccess')";
+    $sql = "INSERT INTO orders (userID, productIDs, quantities, firstName, lastName, phoneNumber, address, totalPrice, paymentMethod, currentStatus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Send')";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("issssisds", $userID, $productIDs, $quantities, $firstName, $lastName, $phoneNumber, $address, $totalPrice, $paymentMethod);
     

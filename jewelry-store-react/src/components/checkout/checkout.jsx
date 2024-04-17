@@ -17,28 +17,35 @@ const Checkout = () => {
   });
   const [purchaseSuccess, setPurchaseSuccess] = useState(false);
 
-  
- 
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost/jewelry-store/jewelry-store-php/user-info.php?userID=${userID}`
-        );
-        const { firstName, lastName } = response.data;
+  const fetchUserData = async () => {
+    try {
+      const response = await axios.post(
+        `http://localhost/jewelry-store/jewelry-store-php/user-info.php`,
+        { userID: userID }
+      );
+      const { userData, success, message } = response.data;
+      if (success) {
+        const { firstName, lastName } = userData;
         setFormData((prevData) => ({
           ...prevData,
           firstName,
           lastName,
         }));
-      } catch (error) {
-        console.error("Error fetching user information:", error);
+      } else {
+        console.error("Error fetching user information:", message);
       }
-    };
-
-    fetchUserData();
+    } catch (error) {
+      console.error("Error fetching user information:", error);
+    }
+  };
+  
+  useEffect(() => {
+    if (userID) {
+      fetchUserData();
+    }
   }, [userID]);
+  
+  
 
   
   const handleFormChange = (e) => {

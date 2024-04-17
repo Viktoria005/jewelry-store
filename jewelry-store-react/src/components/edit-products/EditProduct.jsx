@@ -16,6 +16,8 @@ const EditProduct = () => {
 
   return (
     <div>
+      <div className="editProductBackground"></div>
+      <div className="editProductBody">
       {authenticatedAdmin ? (
         productData ? (
           <form onSubmit={handleSubmit} className="edit-product-form">
@@ -141,6 +143,8 @@ const EditProduct = () => {
                 <button className="edit-product-button" type="submit">
                   Update
                 </button>
+              </div>
+            </div>
                 <button
                   className="cancel-product-button"
                   type="button"
@@ -150,8 +154,6 @@ const EditProduct = () => {
                 >
                   Cancel
                 </button>
-              </div>
-            </div>
           </form>
         ) : (
           <p>No product data</p>
@@ -160,6 +162,7 @@ const EditProduct = () => {
         <p>You don not have access</p>
       )}
       {responseMessage}
+      </div>
     </div>
   );
 };

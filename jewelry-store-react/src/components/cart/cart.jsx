@@ -22,6 +22,9 @@ const Cart = () => {
   };
 
   return (
+    <div>
+    <div className="cartBackground"></div>
+      <div className="cartBody"></div>
     <div id="type-product-container" className="cart">
       <table>
         {cartProducts.length > 0 ? (
@@ -89,6 +92,7 @@ const Cart = () => {
           </button>
         )}
       </div>
+    </div>
     </div>
   );
 };
